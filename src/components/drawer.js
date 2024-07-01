@@ -6,12 +6,12 @@ export default function Drawer({ isOpen, onClose }) {
     <div
       className={`fixed z-[100] inset-0 overflow-y-auto bg-black  text-white transition-transform transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } grid grid-cols-1 md:grid-cols-2 md:gap-16 gap-4 md:px-16  px-4 text-justify  `}
+      } grid grid-cols-1  md:grid-cols-2 md:gap-16 gap-4 md:px-16  px-4 text-justify  `}
     >
       <button className="absolute  top-5 right-5 text-4xl" onClick={onClose}>
         &times;
       </button>
-      <div className="p-5 mt-24 font-light    space-y-8 text-2xl md:text-4xl ">
+      <div className="p-5 md:mt-24 font-light order-2 md:order-1   space-y-8 text-2xl md:text-4xl ">
         <p>
           We are a multi-dimensional creative company specialised in the fields
           of design, film and visual arts.
@@ -36,7 +36,7 @@ export default function Drawer({ isOpen, onClose }) {
           </a>
         </div>
       </div>
-      <div className="p-5 md:mt-24  ">
+      <div className="p-5 mt-24  ">
         <h2 className="text-5xl font-medium mb-4">Contact</h2>
         <div className="border-b w-8 "></div>
         <div className="space-y-4 mt-8">
