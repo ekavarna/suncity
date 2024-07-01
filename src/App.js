@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Nav from './components/nav';
 
 import About from './pages/about';
 import Brands from './pages/brand';
@@ -42,7 +41,6 @@ function App() {
 
   return (
     <div className="bg-black font-Roboto text-white h-full w-screen">
-    <Nav />
     <Routes>
       <Route path="/" element={<HomePage projects={projects} />} />
       <Route path="/brands" element={<Brands />} />
