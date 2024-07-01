@@ -3,12 +3,12 @@ import Footer from "../components/footer";
 
 export default function About() {
   return (
-    <div className="w-full h-screen bg-black">
+    <div className="w-full h-full bg-black">
       <div className=" mx-4 lg:mx-8  h-full mt-8">
         <h1 className="text-center text-5xl uppercase font-semibold">
           Board of directors
         </h1>
-        <div className="mt-8 space-y-8 text-center text-xl">
+        <div className="my-8  h-full space-y-8   text-justify text-xl">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed,
             fugiat illum placeat repudiandae explicabo ex earum molestiae nemo!
@@ -48,7 +48,7 @@ export default function About() {
             omnis, voluptas error quidem nihil. Dicta eos placeat fuga suscipit,
             harum earum. Dicta qui culpa eius iste praesentium omnis incidunt
             rerum quaerat sint, voluptatem quod doloribus aliquam dolor esse
-            dolorum ratione vel quas enim eveniet.
+            dolorum ratione vel quas enim eveniet. 
           </p>
         </div>
       </div>
