@@ -31,8 +31,8 @@ export default function WorkTogether() {
       }
     }
   };
-  return (
-    <div>
+  return (<>
+    <div className="grid  py-16 md:py-24  md:gap-0 gap-8 px-4 grid-cols-1 md:grid-cols-2 bg-white text-black w-full h-full">
       <motion.div
         className="uppercase  font-Armavir text-5xl md:text-7xl"
         initial="hidden"
@@ -51,8 +51,8 @@ export default function WorkTogether() {
           </motion.span>
         ))}
       </motion.div>
-      <div className="grid mx-4 lg:mx-8 py-16 md:py-24  md:gap-0 gap-8 px-4 grid-cols-1 md:grid-cols-2">
-        <span className="text-justify font-light self-end">
+      <div className="self-end">
+        <span className="text-justify font-light ">
           Odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
           voluptatem sequi nesciunt{" "}
           <a href="mailto:info@suncityfilms.com" className="font-medium">
@@ -60,7 +60,8 @@ export default function WorkTogether() {
           </a>
         </span>
       </div>
-      <div className="border border-b border-black my-4"></div>
+
     </div>
+      <div className="border border-b border-black my-4"></div></>
   );
 }
