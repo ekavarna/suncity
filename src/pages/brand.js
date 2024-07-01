@@ -90,7 +90,7 @@ export default function Brands() {
 
   return (
     <div className="w-full  flex flex-col justify-center bg-black text-white  h-max relative">
-      <div className=" flex flex-col h-full fixed  bg-black top-20 my-4 px-4 md:my-16 md:px-8 overflow-auto">
+      <div className=" flex flex-col h-full fixed  bg-black top-32  md:top-20  my-4 px-4 md:my-16 md:px-8 overflow-auto">
         <div className="flex items-center gap-4 mt-8">
           {/* Brand toggle buttons */}
           <button
