@@ -43,7 +43,7 @@ const Player = ({ url, title, description }) => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam.
             </div>
-            <div className="lg:block hidden">
+            <a href="/" className="lg:block hover:translate-x-2 hover:translate-y-2 duration-500 hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -56,7 +56,7 @@ const Player = ({ url, title, description }) => {
                   clipRule="evenodd"
                 />
               </svg>
-            </div>
+            </a>
           </div>
         </div>
       </motion.div>
