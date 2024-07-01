@@ -64,10 +64,10 @@ export default function Footer() {
         <div className="">
           <h1 className="font-medium text-xl">Write to us</h1>
           <div className="grid grid-cols-1 mt-4 text-lg space-y-1">
-            <a href="mailto:info@suncityfilms.com" className="">
+            <a href="mailto:info@suncityfilms.com" className="w-max">
               info@suncityfilms.com
             </a>
-            <a href="tel:+98765432190" className="">
+            <a href="tel:+98765432190" className="w-max">
               +98765432190
             </a>
           </div>
