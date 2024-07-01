@@ -4,6 +4,7 @@ import Player from '../components/player';
 import Footer from '../components/footer';
 import Who from '../components/Who';
 import Nav from '../components/nav';
+import WorkTogether from '../components/workTogether';
 
 function HomePage({ projects }) {
   return (
@@ -20,6 +21,7 @@ function HomePage({ projects }) {
         </div>
       ))}
           <Who />
+          <WorkTogether/>
           <Footer />
 
     </div>
