@@ -6,6 +6,7 @@ export default function Footer() {
   
   return (
     <div className="w-full bg-white text-black">
+      <div className="border border-b border-black my-4"></div>
 
       <div className="grid grid-cols-1 mx-4  lg:mx-8 py-16 px-4 md:grid-cols-4">
         <div className="">
