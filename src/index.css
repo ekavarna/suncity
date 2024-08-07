@@ -35,3 +35,22 @@ code {
 .translate-x-0 {
   transform: translateX(0);
 }
+.range-input {
+  appearance: none;
+  background-color: white;
+  height: 1px;
+  border-radius: 5px;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.range-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}

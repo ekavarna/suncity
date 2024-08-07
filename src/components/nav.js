@@ -19,7 +19,7 @@ export default function Nav() {
     },
     {
       id: 3,
-      name: "About",
+      name: "Director",
       link: "/about"
     }
   ];
@@ -59,7 +59,7 @@ export default function Nav() {
             alt=""
             width={300}
             height={300}
-            className="w-[8rem] "
+            className="w-[4rem] md:w-[8rem] "
           />
         </a>
       </div>

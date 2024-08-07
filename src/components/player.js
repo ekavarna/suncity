@@ -30,34 +30,20 @@ const Player = ({ url, title, description }) => {
         transition={{
           duration: 0.7
         }}
-        className="absolute bottom-4 lg:bottom-16 flex gap-4 items-center px-2  md:px-16 w-full"
+        className="md:absolute bottom-4 mt-4 md:mt-0 lg:bottom-16 flex gap-4 items-center px-2  md:px-16 w-full"
       >
-        <div className="md:grid-cols-2 grid-cols-1 gap-4 md:gap-0 text-white grid">
-          <div className="">
+        <div className="md:grid-cols-2 grid-cols-1 gap-2 md:gap-0 text-white grid">
+          <div className=" text-center md:text-left">
             <h1 className="text-sm md:text-base"><span className="font-medium">Brand Name /</span> <span>Camapign Name</span></h1>
             <p className="uppercase font-Armavir md:text-2xl text-xl">Project Name</p>
           </div>
-          <div className=" flex gap-8 md:gap-16">
+      
             <div className="text-justify font-light text-sm md:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam.
             </div>
-            <a href="/" className="lg:block hover:translate-x-2 hover:translate-y-2 duration-500 hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-12"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3.97 3.97a.75.75 0 0 1 1.06 0l13.72 13.72V8.25a.75.75 0 0 1 1.5 0V19.5a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1 0-1.5h9.44L3.97 5.03a.75.75 0 0 1 0-1.06Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </a>
-          </div>
+            
         </div>
       </motion.div>
     </div>
