@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Player from './player';
 import { AiOutlineClose } from "react-icons/ai";
 import FPlayer from './Fplayer';
 
@@ -8,7 +7,7 @@ const FullscreenModal = ({ isOpen, onClose, videoProps }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0  z-[104] flex items-center justify-center bg-black ">
+    <div className="fixed inset-0   z-[99] flex items-center justify-center bg-black ">
       <div className="relative w-full h-full flex items-center">
         <button
           onClick={onClose}
