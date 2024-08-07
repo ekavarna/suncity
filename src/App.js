@@ -40,7 +40,7 @@ function App() {
   ];
 
   return (
-    <div className="bg-black font-Roboto text-white h-full w-screen">
+    <div className="bg-black font-Roboto text-white h-full overflow-hidden w-screen">
     <Routes>
       <Route path="/" element={<HomePage projects={projects} />} />
       <Route path="/brands" element={<Brands />} />

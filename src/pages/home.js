@@ -40,31 +40,35 @@ function HomePage({ projects }) {
   };
 
   const handleMobVideoClick = (e, project) => {
-    const videoElement = e.currentTarget.querySelector("video");
+  const videoElement = e.currentTarget.querySelector("video");
+  const container = e.currentTarget;
 
-    if (!videoElement) return;
+  if (!videoElement) return;
 
-    toggleFullscreen(videoElement);
+  toggleFullscreen(container);
 
-    videoElement.play().catch((error) => {
-      console.error("Error attempting to play the video:", error);
-    });
+  videoElement.play().catch((error) => {
+    console.error("Error attempting to play the video:", error);
+  });
 
-    const handleFullscreenChange = () => {
-      if (!document.fullscreenElement) {
-        videoElement.pause();
-        videoElement.controls = false;
-        document.removeEventListener(
-          "fullscreenchange",
-          handleFullscreenChange
-        );
-      } else {
-        videoElement.controls = true;
-      }
-    };
-
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
+  const handleFullscreenChange = () => {
+    if (!document.fullscreenElement) {
+      videoElement.pause();
+      videoElement.controls = false;
+      container.classList.remove('fullscreen');
+      document.removeEventListener(
+        "fullscreenchange",
+        handleFullscreenChange
+      );
+    } else {
+      videoElement.controls = true;
+      container.classList.add('fullscreen');
+    }
   };
+
+  document.addEventListener("fullscreenchange", handleFullscreenChange);
+};
+
 
   const handleClick = (project, e) => {
     if (isMobile) {
@@ -75,8 +79,8 @@ function HomePage({ projects }) {
   };
 
   return (
-    <div className="h-full w-full bg-white">
-      <div className="flex flex-col bg-black items-center gap-4 md:gap-8">
+    <div className="h-full w-full bg-white ">
+      <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8 ">
         <Nav />
         {projects.map((project) => (
           <div
