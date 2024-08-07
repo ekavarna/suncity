@@ -19,7 +19,7 @@ export default function Nav() {
     },
     {
       id: 3,
-      name: "About",
+      name: "Director",
       link: "/about"
     }
   ];
