@@ -6,19 +6,20 @@ export default function About() {
   return (
     <div className="w-full h-full bg-black">
       <Nav />
-      <div className=" mx-4 my-24 lg:mx-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 h-full mt-8">
-        <div className=" aspect-[4/3]  object-cover">
+      <div className="mx-4 my-24 lg:mx-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 h-full mt-8">
+        <div className="relative aspect-[4/3] object-cover">
           <img
             src="https://images.pexels.com/photos/3760514/pexels-photo-3760514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
-            className="h-full w-full"
+            className="h-full w-full border-4  transform scale-105 shadow-lg"
           />
+          <div className="absolute inset-0 border-4  transform scale-105 -rotate-2"></div>
         </div>
-        <div className=" space-y-8  my-auto">
-          <h1 className=" font-Armavir text-center md:text-left text-3xl md:text-5xl uppercase ">
+        <div className="space-y-8 my-auto">
+          <h1 className="font-Armavir text-center md:text-left text-3xl md:text-5xl uppercase">
             About the director
           </h1>
-          <p className="  h-full   text-justify font-light">
+          <p className="h-full text-justify font-light">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sed,
             fugiat illum placeat repudiandae explicabo ex earum molestiae nemo!
             Adipisci similique dolore consequatur sunt fuga consequuntur
@@ -33,7 +34,6 @@ export default function About() {
           </p>
         </div>
       </div>
-
       <Footer />
     </div>
   );

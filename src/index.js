@@ -1,15 +1,35 @@
-// index.tsx or index.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
-import App from './App';
-import './index.css'; // Your global styles
+import React from "react";
+import ReactDOM from "react-dom/client"; 
+import App from "./App";
+import "./index.css";
+import AnimatedCursor from "react-animated-cursor";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root")); 
+
+root.render(
   <React.StrictMode>
-    <BrowserRouter> {/* Wrap your App component with BrowserRouter */}
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <div className="hidden md:block">
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={2}
+        outerAlpha={0}
+        showSystemCursor={false}
+        hasBlendMode={true}
+        outerStyle={{
+          border: "3px solid white",
+          mixBlendMode: "difference", 
+
+        }}
+        innerStyle={{
+          backgroundColor: "white",
+          mixBlendMode: "difference", 
+
+        }}
+        
+      />
+    </div>
+    <App />
+  </React.StrictMode>
 );

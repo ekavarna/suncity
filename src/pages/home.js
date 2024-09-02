@@ -1,123 +1,86 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Player from "../components/player";
 import Footer from "../components/footer";
 import Who from "../components/Who";
 import Nav from "../components/nav";
 import WorkTogether from "../components/workTogether";
 import FullscreenModal from "../components/fullscreen";
-
-const toggleFullscreen = (videoElement) => {
-  if (videoElement.requestFullscreen) {
-    videoElement.requestFullscreen();
-  } else if (videoElement.webkitRequestFullscreen) {
-    videoElement.webkitRequestFullscreen();
-  } else if (videoElement.mozRequestFullScreen) {
-    videoElement.mozRequestFullScreen();
-  } else if (videoElement.msRequestFullscreen) {
-    videoElement.msRequestFullscreen();
-  }
-};
+import Loader from "../components/loadingScreen";
+import ScrollToTop from "react-scroll-to-top";
+import { BiArrowToTop } from "react-icons/bi";
+import { FaChevronUp } from "react-icons/fa";
 
 function HomePage({ projects }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const handleVideoClick = (project) => {
+    if (project.id === 1) {
+      return;
+    }
     setSelectedVideo(project);
     setIsModalOpen(true);
   };
 
-  const handleMobVideoClick = (e, project) => {
-  const videoElement = e.currentTarget.querySelector("video");
-  const container = e.currentTarget;
-
-  if (!videoElement) return;
-
-  toggleFullscreen(container);
-
-  videoElement.play().catch((error) => {
-    console.error("Error attempting to play the video:", error);
-  });
-
-  const handleFullscreenChange = () => {
-    if (!document.fullscreenElement) {
-      videoElement.pause();
-      videoElement.controls = false;
-      container.classList.remove('fullscreen');
-      document.removeEventListener(
-        "fullscreenchange",
-        handleFullscreenChange
-      );
-    } else {
-      videoElement.controls = true;
-      container.classList.add('fullscreen');
-    }
+  const handleClick = (project) => {
+    handleVideoClick(project);
   };
+  const filteredProjects = projects
+    .filter((project) => project.id)
+    .sort((a, b) => (a.id === 1 ? -1 : b.id === 1 ? 1 : a.id - b.id));
+  if (projects.length >= 1) {
+    return (
+      <div className="h-full w-full bg-white ">
+        <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8 ">
+          <Nav />
+          {filteredProjects &&
+            filteredProjects.map((project, index) => (
+              <div
+                key={index}
+                onClick={(e) => handleClick(project)}
+                className="w-full cursor-pointer bg-black h-full"
+              >
+                <Player
+                  title={project.title}
+                  description={project.description}
+                  url={project.teaser}
+                />
+              </div>
+            ))}
+          <ScrollToTop
+            smooth
+            component={
+              <FaChevronUp className="text-2xl mix-blend-difference" />
+            }
+            className="rounded-full  flex items-center justify-center mix-blend-difference    btn-circle hover:scale-105 duration-300 "
+          />
 
-  document.addEventListener("fullscreenchange", handleFullscreenChange);
-};
-
-
-  const handleClick = (project, e) => {
-    if (isMobile) {
-      handleMobVideoClick(e, project);
-    } else {
-      handleVideoClick(project);
-    }
-  };
-
-  return (
-    <div className="h-full w-full bg-white ">
-      <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8 ">
-        <Nav />
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            onClick={(e) => handleClick(project, e)}
-            className="w-full cursor-pointer bg-black h-full"
-          >
-            <Player
-              title={project.title}
-              description={project.description}
-              url={project.link}
-            />
-          </div>
-        ))}
-        <Who />
+          <Who />
+        </div>
+        <WorkTogether />
+        <Footer />
+        {isModalOpen && (
+          <FullscreenModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            videoProps={
+              selectedVideo
+                ? {
+                    url: selectedVideo.link,
+                    title: selectedVideo.title,
+                    description: selectedVideo.description,
+                    isActive: true,
+                    showControls: true
+                  }
+                : {}
+            }
+          />
+        )}
       </div>
-      <WorkTogether />
-      <Footer />
-      {isModalOpen && (
-        <FullscreenModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          videoProps={
-            selectedVideo
-              ? {
-                  url: selectedVideo.link,
-                  title: selectedVideo.title,
-                  description: selectedVideo.description,
-                  isActive: true,
-                  showControls: true
-                }
-              : {}
-          }
-        />
-      )}
-    </div>
-  );
+    );
+  } else {
+    return <Loader />;
+  }
 }
 
 export default HomePage;

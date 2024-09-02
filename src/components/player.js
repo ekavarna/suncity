@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 
 const Player = ({ url, title, description }) => {
+  console.log(url)
   return (
     <div className="relative  h-full rounded-xl lg:mx-8  mx-4  ">
       <div className="relative w-full h-full ">
@@ -19,6 +20,7 @@ const Player = ({ url, title, description }) => {
             autoPlay
             onContextMenu={(e) => e.preventDefault()}
             loop
+            playsInline
             preload="auto"
             src={url}
           ></video>

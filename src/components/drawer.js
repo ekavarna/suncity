@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
 
 export default function Drawer({ isOpen, onClose }) {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose(); 
+      }
+    };
+
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
   return (
     <div
-      className={`fixed z-[100] inset-0 overflow-y-auto bg-black  text-white transition-transform transform ${
+      className={`fixed z-[100] inset-0 overflow-y-auto    bg-black  text-white transition-transform transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } grid grid-cols-1  md:grid-cols-2 md:gap-16 gap-4 md:px-16  px-4 text-justify  `}
     >
-      <button className="absolute  top-5 right-5 text-4xl" onClick={onClose}>
+      <button className="absolute  top-5 right-5 text-4xl" onClick={onClose} >
         &times;
       </button>
       <div className="p-5 md:mt-24 font-light order-2 md:order-1   space-y-8 text-2xl md:text-4xl ">
         <p>
-          We are a multi-dimensional creative company specialised in the fields
-          of design, film and visual arts.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nobis
+          sint voluptate fugiat rem, harum quaerat
         </p>
         <p>
-          Our London and Los Angeles studios work closely with the world's
-          leading brands and agencies to produce award-winning creative content.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+          temporibus! Dicta magnam odit at ipsa saepe nesciunt, beatae 
         </p>
 
         <div className="grid text-2xl pt-8  font-medium gap-2 grid-cols-1 ">
