@@ -49,10 +49,8 @@ function HomePage({ projects }) {
             ))}
           <ScrollToTop
             smooth
-            component={
-              <FaChevronUp className="text-2xl mix-blend-difference" />
-            }
-            className="rounded-full  flex items-center justify-center mix-blend-difference    btn-circle hover:scale-105 duration-300 "
+            component={<FaChevronUp className="text-2xl  text-black" />}
+            className="rounded-full flex items-center justify-center  btn-circle shadow-xl  hover:scale-105 duration-300"
           />
 
           <Who />

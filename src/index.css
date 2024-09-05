@@ -77,3 +77,8 @@ code {
   height: 50px;
   animation: spin 1s linear infinite;
 }
+@media (max-width: 768px) {
+  .scroll-to-top {
+    right: 20px;
+  }
+}
