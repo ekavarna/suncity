@@ -94,7 +94,7 @@ export default function Brands({ projects }) {
       <div className="fixed top-0 w-full z-10">
         <Nav />
       </div>
-      <div className="w-full flex flex-col h-full fixed top-24 p-4 md:p-16 overflow-auto">
+      <div className="w-full flex flex-col h-full fixed top-20  p-4 md:p-16 overflow-auto">
         <div className="md:flex flex-row hidden items-center justify-between w-full mt-8 flex-wrap">
           <div className=" md:w-1/5">
             <motion.div
