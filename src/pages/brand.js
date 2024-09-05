@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router-dom";
-import { fetchProjectsData } from "../components/dataService";
+
 import { MdSearch } from "react-icons/md";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 import { BiFilter } from "react-icons/bi";
@@ -9,39 +8,18 @@ import AnimatedText from "../components/TextAnimations/anitext";
 import FullscreenModal from "../components/fullscreen";
 import Nav from "../components/nav";
 
-export default function Brands() {
-  const location = useLocation();
+export default function Brands({ projects }) {
   const [activeBrand, setActiveBrand] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [isBModalOpen, setIsBModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [projects, setProjects] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchRef = useRef(null);
 
-  useEffect(() => {
-    const loadProjectsData = async () => {
-      const projectsData = await fetchProjectsData();
-      setProjects(projectsData);
-    };
-
-    loadProjectsData();
-  }, []);
-
-  useEffect(() => {
-    if (location.state && location.state.brand) {
-      setActiveBrand(location.state.brand);
-    }
-  }, [location.state]);
-
   const toggleBrand = (brand) => {
     setActiveBrand((prev) => (prev === brand ? null : brand));
-  };
-
-  const handleLoadedMetadata = (e) => {
-    e.currentTarget.currentTime = 2;
   };
 
   const filteredVideos = () => {
@@ -50,7 +28,8 @@ export default function Brands() {
       if (activeBrand && project.brand !== activeBrand) return false;
       if (
         searchTerm &&
-        !project.title.toLowerCase().includes(searchTerm.toLowerCase())
+        !project.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        !project.brand.toLowerCase().includes(searchTerm.toLowerCase())
       )
         return false;
       return project.title !== "Reel";
@@ -215,7 +194,7 @@ export default function Brands() {
         </div>
 
         {/* Dropdown for mobile screens */}
-        <div className="flex mt-8 md:mt-4 md:hidden items-center justify-between w-full">
+        <div className="flex mt-4 md:hidden items-center justify-between w-full">
           <div className="relative w-1/2">
             {" "}
             <input
@@ -295,22 +274,17 @@ export default function Brands() {
               >
                 <video
                   src={project.teaser}
-                  className="object-cover rounded-lg group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-300 opacity-50"
                   controls={false}
-                  preload="metadata"
-                  muted
-                  playsInline
                   disablePictureInPicture
-                  onLoadedMetadata={(e) => (e.currentTarget.currentTime = 2)}
-                  onContextMenu={(e) => e.preventDefault()}
-                  controlsList="nodownload"
-                  onError={(e) => {
-                    console.error(
-                      "Error loading video:",
-                      e.currentTarget.error
-                    );
-                  }}
-                />
+                  preload="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src={project.teaser} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <div
                   className="absolute inset-0 text-center  flex items-center justify-center"
                   onClick={(e) => {
@@ -331,49 +305,42 @@ export default function Brands() {
 
         {/* MOBILE */}
         <div className="my-8 md:py-4 md:hidden bg-[#231F20] overflow-y-auto overflow-x-hidden flex-grow h-full grid grid-cols-1 gap-4 justify-items-center">
-          <AnimatePresence>
-            {filteredVideos().map((project) => (
-              <motion.div
-                key={project.indexId}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => handleVideoClick(project)}
-                className="relative cursor-pointer aspect-video rounded-lg h-max group w-full"
+          {filteredVideos().map((project) => (
+            <motion.div
+              key={project.indexId}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => handleVideoClick(project)}
+              className="relative cursor-pointer aspect-video rounded-lg h-max group w-full"
+            >
+              <video
+                className="object-cover rounded-lg"
+                controls={false}
+                disablePictureInPicture
+                preload="auto"
+                autoPlay
+                muted
+                loop
+                playsInline
               >
-                <video
-                  src={project.teaser}
-                  className="object-cover rounded-lg group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-300 opacity-70"
-                  controls={false}
-                  preload="metadata"
-                  muted
-                  playsInline
-                  disablePictureInPicture
-                  onLoadedMetadata={(e) => (e.currentTarget.currentTime = 2)}
-                  onContextMenu={(e) => e.preventDefault()}
-                  controlsList="nodownload"
-                  onError={(e) => {
-                    console.error(
-                      "Error loading video:",
-                      e.currentTarget.error
-                    );
-                  }}
-                />
-                <div
-                  className="absolute inset-0 text-center flex items-center justify-center"
-                  onClick={() => handleVideoClick(project)}
-                >
-                  <AnimatedText
-                    brand={project.brand}
-                    title={project.title}
-                    isVisible={true}
-                    smallText={true}
-                  />{" "}
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                <source src={project.teaser} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div
+                className="absolute inset-0 text-center flex items-center justify-center"
+                onClick={() => handleVideoClick(project)}
+              >
+                <AnimatedText
+                  brand={project.brand}
+                  title={project.title}
+                  isVisible={true}
+                  smallText={true}
+                />{" "}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 

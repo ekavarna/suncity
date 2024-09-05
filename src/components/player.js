@@ -22,8 +22,10 @@ const Player = ({ url, title, description }) => {
             loop
             playsInline
             preload="auto"
-            src={url}
-          ></video>
+            >
+            <source src={url} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </motion.div>
       </div>
 

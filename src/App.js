@@ -17,8 +17,7 @@ function App() {
 
     loadProjectsData();
     return () => {
-      // Optionally clear cache here if needed
-      // projectsCache = null;
+
     };
   }, []);
 
@@ -29,7 +28,7 @@ function App() {
       <div className="bg-black font-Roboto text-white h-full overflow-hidden w-screen">
         <Routes>
           <Route path="/" element={<HomePage projects={projects} />} />
-          <Route path="/brands" element={<Brands />} />
+          <Route path="/brands" element={<Brands projects={projects}  />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
