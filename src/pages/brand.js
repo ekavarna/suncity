@@ -90,7 +90,7 @@ export default function Brands({ projects }) {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center bg-[#231F20] text-white min-h-screen relative">
+    <div className="w-full flex flex-col justify-center bg-black text-white min-h-screen relative">
       <div className="fixed top-0 w-full z-10">
         <Nav />
       </div>
@@ -107,7 +107,7 @@ export default function Brands({ projects }) {
               <input
                 type="text"
                 placeholder="SEARCH"
-                className="input text-left w-full bg-[#231F20] border-white rounded-full text-white uppercase tracking-widest font-semibold text-xs focus:border-white input-sm"
+                className="input text-left w-full bg-black border-white rounded-full text-white uppercase tracking-widest font-semibold text-xs focus:border-white input-sm"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -170,7 +170,7 @@ export default function Brands({ projects }) {
                       animate="show"
                       exit="exit"
                       variants={containerVariants}
-                      className="absolute bg-[#231F20] border overflow-y-scroll  glass h-max w-[12rem] max-h-56 bg-opacity text-white right-0 top-12 rounded-xl p-2 shadow-lg z-20"
+                      className="absolute bg-black border overflow-y-scroll  glass h-max w-[12rem] max-h-56 bg-opacity text-white right-0 top-12 rounded-xl p-2 shadow-lg z-20"
                     >
                       {uniqueBrands.slice(7).map((brand, index) => (
                         <motion.button
@@ -200,7 +200,7 @@ export default function Brands({ projects }) {
             <input
               type="text"
               placeholder="SEARCH"
-              className="input w-full bg-[#231F20] border-white rounded-full text-white uppercase tracking-widest font-semibold text-xs text-left focus:border-white input-xs"
+              className="input w-full bg-black border-white rounded-full text-white uppercase tracking-widest font-semibold text-xs text-left focus:border-white input-xs"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)} // Update search term
             />
@@ -213,13 +213,13 @@ export default function Brands({ projects }) {
               <BiFilter />
             </p>
             <button
-              className="bg-[#231F20] text-white text-sm px-4 py-1 rounded-full border border-white text-left"
+              className="bg-black text-white text-sm px-4 py-1 rounded-full border border-white text-left"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               {activeBrand || "ALL"}
             </button>
             {dropdownOpen && (
-              <div className="absolute overflow-y-scroll h-[50vh] bg-[#231F20] border border-white text-white right-0 top-12 w-[12rem] glass rounded-lg shadow-lg z-20">
+              <div className="absolute overflow-y-scroll h-[50vh] bg-black border border-white text-white right-0 top-12 w-[12rem] glass rounded-lg shadow-lg z-20">
                 <button
                   className="block w-full text-xs font-light tracking-widest text-left px-4 py-2"
                   onClick={() => {
@@ -258,7 +258,7 @@ export default function Brands({ projects }) {
           </div>
         </div>
 
-        <div className="my-8 md:py-4 hidden bg-[#231F20] overflow-y-auto flex-grow h-full md:grid grid-cols-3 gap-4 justify-items-center">
+        <div className="my-8 md:py-4 hidden bg-black overflow-y-auto flex-grow h-full md:grid grid-cols-3 gap-4 justify-items-center">
           <AnimatePresence>
             {filteredVideos().map((project) => (
               <motion.div
@@ -304,7 +304,7 @@ export default function Brands({ projects }) {
         </div>
 
         {/* MOBILE */}
-        <div className="my-8 md:py-4 md:hidden bg-[#231F20] overflow-y-auto overflow-x-hidden flex-grow h-full grid grid-cols-1 gap-4 justify-items-center">
+        <div className="my-8 md:py-4 md:hidden bg-black overflow-y-auto overflow-x-hidden flex-grow h-full grid grid-cols-1 gap-4 justify-items-center">
           {filteredVideos().map((project) => (
             <motion.div
               key={project.indexId}
