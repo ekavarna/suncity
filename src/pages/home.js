@@ -3,6 +3,7 @@ import Player from "../components/player";
 import Footer from "../components/footer";
 import Who from "../components/Who";
 import Nav from "../components/nav";
+import reel from "../assets/Reel.mp4";
 
 import FullscreenModal from "../components/fullscreen";
 import Loader from "../components/loadingScreen";
@@ -33,6 +34,24 @@ function HomePage({ projects }) {
       <div className="h-full w-full bg-white ">
         <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8 ">
           <Nav />
+
+          {/* Delete this div later  */}
+          <div className="relative  h-full rounded-xl lg:mx-8  mx-4  ">
+            <div className="relative w-full h-full ">
+              <video
+                className="w-full object-cover h-full rounded-3xl"
+                muted
+                autoPlay
+                onContextMenu={(e) => e.preventDefault()}
+                loop
+                playsInline
+                preload="auto"
+              >
+                <source src={reel} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
           {filteredProjects &&
             filteredProjects.map((project, index) => (
               <div
