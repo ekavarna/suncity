@@ -1,66 +1,22 @@
-import logo from "../assets/logo.png";
-import { MdMenu } from "react-icons/md";
-import Drawer from "./drawer";
+// import logo from "../assets/logomain.png";
+import logo from "../assets/logoyellow.png";
+
 import { useState } from "react";
 import FlipLink from "./TextAnimations/flipText";
+import { FaInstagram } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
+import { FiYoutube } from "react-icons/fi";
+import Director from "./director";
 
 export default function Nav() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-
-  const navItems = [
-    {
-      id: 1,
-      name: "Work",
-      link: "/"
-    },
-    {
-      id: 2,
-      name: "Brands",
-      link: "/brands"
-    },
-    {
-      id: 3,
-      name: "Director",
-      link: "/about"
-    }
-  ];
 
   return (
     <>
       <div className="navbar justify-between  z-50   lg:px-8 text-white top-0 ">
         <div className="">
-          {/* MOBILE SCREEN */}
-          <div className="drawer  md:hidden drawer-start">
-            <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
-              <label htmlFor="my-drawer-4" className="text-3xl">
-                <MdMenu />
-              </label>
-            </div>
-            <div className="drawer-side z-10">
-              <label
-                htmlFor="my-drawer-4"
-                aria-label="close sidebar"
-                className="drawer-overlay"
-              ></label>
-              <ul className="menu items-center justify-center text-xl uppercase bg-black  min-h-screen w-80 p-4">
-                {navItems.map((item) => (
-                  <li key={item.id} className="py-0">
-                    <a
-                      className="
-              "
-                      href={item.link}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
           {/* LOGO COMMON FOR ALL SCREEN */}
-          <a href="/" className=" object-contain">
+          <a href="/" className=" object-contain  ">
             <img
               src={logo}
               priority
@@ -71,34 +27,53 @@ export default function Nav() {
             />
           </a>
         </div>
-        <div className=" hidden  lg:flex">
+        <div className=" flex">
           <ul className="menu text-lg    tracking-widest menu-horizontal px-1">
-            {navItems.map((item) => (
-              <li key={item.id} className="py-0">
-                <a
-                  className="
+            <li className="py-0">
+              <a
+                className="
               "
-                  href={item.link}
-                >
-                <FlipLink> {item.name}</FlipLink> 
-                </a>
-              </li>
-            ))}
+                href="/work"
+              >
+                <FlipLink>Work</FlipLink>
+              </a>
+            </li>
+
+            <li className="py-0">
+              <button className="" onClick={() => setDrawerOpen(true)}>
+                <FlipLink>Director</FlipLink>
+              </button>
+            </li>
           </ul>
         </div>
 
-        <div className="">
-          <button
-            onClick={() => setDrawerOpen(true)}
-            className="btn text-lg  rounded-full  font-medium bg-transparent hover:text-black text-white"
+        <div className="flex items-center  text-xl justify-center gap-4">
+          <a
+            className="text-2xl hover:text-theme-pink hover:scale-105 duration-200"
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.instagram.com/suncity.films"
           >
-         <FlipLink>Get in touch</FlipLink>   
-          </button>
+            <FaInstagram />
+          </a>
+
+          <a
+            className="text-2xl hover:text-theme-pink hover:scale-105 duration-200"
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.youtube.com/@suncityfilms"
+          >
+            <FiYoutube />
+          </a>
+          <a className="text-2xl hover:text-theme-pink hover:scale-105 duration-200" href="mailto:info@suncityfilms.com">
+            {" "}
+            <CiMail strokeWidth={'px'}/>{" "}
+          </a>
         </div>
       </div>
       {/* Fullscreen Drawer */}
 
-      <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} />
+      <Director isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   );
 }

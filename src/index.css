@@ -29,11 +29,11 @@ code {
 }
 
 .translate-x-full {
-  transform: translateX(-100%);
+  transform: translateY(-100%);
 }
 
 .translate-x-0 {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 .range-input {
   appearance: none;

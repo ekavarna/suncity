@@ -3,11 +3,11 @@ import Player from "../components/player";
 import Footer from "../components/footer";
 import Who from "../components/Who";
 import Nav from "../components/nav";
-import WorkTogether from "../components/workTogether";
+
 import FullscreenModal from "../components/fullscreen";
 import Loader from "../components/loadingScreen";
 import ScrollToTop from "react-scroll-to-top";
-import { BiArrowToTop } from "react-icons/bi";
+
 import { FaChevronUp } from "react-icons/fa";
 
 function HomePage({ projects }) {
@@ -55,7 +55,7 @@ function HomePage({ projects }) {
 
           <Who />
         </div>
-        <WorkTogether />
+
         <Footer />
         {isModalOpen && (
           <FullscreenModal

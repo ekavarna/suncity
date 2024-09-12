@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import About from "./pages/about";
-import Brands from "./pages/brand";
-import HomePage from "./pages/home";
+
+
 import { fetchProjectsData } from "./components/dataService";
+import Work from "./pages/work";
+import HomePage from "./pages/home";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -16,20 +17,15 @@ function App() {
     };
 
     loadProjectsData();
-    return () => {
-
-    };
+    return () => {};
   }, []);
 
-
-  
   return (
     <Router>
       <div className="bg-black font-Roboto text-white h-full overflow-hidden w-screen">
         <Routes>
           <Route path="/" element={<HomePage projects={projects} />} />
-          <Route path="/brands" element={<Brands projects={projects}  />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/work" element={<Work projects={projects} />} />
         </Routes>
       </div>
     </Router>

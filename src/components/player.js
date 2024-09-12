@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 
-
 const Player = ({ url, title, description }) => {
-  console.log(url)
+  console.log(url);
   return (
     <div className="relative  h-full rounded-xl lg:mx-8  mx-4  ">
       <div className="relative w-full h-full ">
         <motion.div
-          initial={{ opacity:0 }}
+          initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{
             duration: 0.7
@@ -22,7 +21,7 @@ const Player = ({ url, title, description }) => {
             loop
             playsInline
             preload="auto"
-            >
+          >
             <source src={url} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -30,31 +29,45 @@ const Player = ({ url, title, description }) => {
       </div>
 
       <motion.div
-        initial={{ y: 100, opacity: 0.5 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: 1 }}
         transition={{
           duration: 0.7
         }}
-        className="absolute inset-0 md:inset-auto mt-4 md:mt-0 lg:bottom-16 flex gap-4 items-center justify-center px-2  md:px-16 w-full"
+        className="absolute inset-0  mt-4 md:mt-0 bottom-4 lg:bottom-16 flex gap-4 items-end justify-center px-2  md:px-16 w-full"
       >
-        <div className="md:grid-cols-2 grid-cols-1 w-full gap-2 md:gap-0  text-white grid">
-          <div className=" text-center md:text-left">
-            <h1 className="text-sm md:text-base">
-              <span className="font-medium">Brand Name /</span>{" "}
-              <span>Camapign Name</span>
-            </h1>
+        <div className="grid-cols-2  w-full gap-2 md:gap-0  text-white hidden md:grid">
+          <div className=" self-center text-center md:text-left">
             <p className="uppercase font-Armavir md:text-2xl text-xl">
-            Project Name
+              Brand Name
             </p>
+            <h1 className="text-xs md:text-base font-medium">Project Name</h1>
           </div>
 
-          <div className="text-justify md:block hidden font-light text-sm md:text-base">
+          <div className="text-justify hidden md:block  font-light text-xs md:text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam.
           </div>
         </div>
       </motion.div>
+      <div className="absolute inset-0 text-center md:hidden flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.7
+          }}
+          className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
+        >
+          <div className="grid-cols-2   w-full gap-2  text-white grid">
+            <h1 className="uppercase font-Armavir ">
+              <span className="">Brand Name</span>{" "}
+            </h1>
+            <p className="text-xs font-medium">Project Name</p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };

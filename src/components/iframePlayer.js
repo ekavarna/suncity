@@ -1,6 +1,7 @@
 import React from "react";
 
-const IFramePlayer = ({ url }) => {
+const IFramePlayer = ({  autoplay }) => {
+  const url = '6pGmszqWqns'
   if (!url) {
     return (
       <div className="w-full h-full flex items-center justify-center text-white">
@@ -12,13 +13,14 @@ const IFramePlayer = ({ url }) => {
   return (
     <div className="relative w-full h-full m-auto">
       <iframe
-        src={`https://player.vimeo.com/video/${url}?badge=0&autopause=0&player_id=0&app_id=58479`}
+        src={`https://www.youtube.com/embed/${url}?autoplay=${autoplay ? 1 : 0}&mute=${autoplay ? 1 : 0}&rel=0&modestbranding=1&showinfo=0`}
+        
         className="w-full h-full"
         frameBorder="0"
-        allow="autoplay; fullscreen"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        title="Vimeo Player"
-        aria-label="Vimeo Video Player"
+        title="YouTube Player"
+        aria-label="YouTube Video Player"
       ></iframe>
     </div>
   );

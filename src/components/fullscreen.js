@@ -1,32 +1,28 @@
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { AiOutlineClose } from 'react-icons/ai';
-import { motion } from 'framer-motion';
-import IFramePlayer from './iframePlayer';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+import { AiOutlineClose } from "react-icons/ai";
+import { motion } from "framer-motion";
+import IFramePlayer from "./iframePlayer";
 
 const FullscreenModal = ({ isOpen, onClose, videoProps }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
-        onClose(); 
+        onClose();
       }
     };
-
 
     if (isOpen) {
       document.addEventListener("keydown", handleKeyDown);
     }
-
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
   if (!isOpen) return null;
-  
 
   return ReactDOM.createPortal(
-    
     <motion.div
       className="fixed inset-0 z-[104] flex items-center justify-center bg-[#231F20]"
       initial={{ opacity: 0 }}
@@ -44,7 +40,9 @@ const FullscreenModal = ({ isOpen, onClose, videoProps }) => {
         >
           <AiOutlineClose />
         </button>
-        {videoProps.url && <IFramePlayer url={videoProps.url} />}
+        {videoProps.url && (
+          <IFramePlayer url={videoProps.url} autoplay={isOpen} />
+        )}
       </div>
     </motion.div>,
     document.body
