@@ -53,7 +53,7 @@ function HomePage({ projects }) {
             </div>
           </div>
           {filteredProjects &&
-            filteredProjects.map((project, index) => (
+            filteredProjects.slice(0,5).map((project, index) => (
               <div
                 key={index}
                 onClick={(e) => handleClick(project)}

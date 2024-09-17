@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="">
           <div className=" flex flex-col lg:flex-row gap-2 items-center mt-4 text-lg ">
             <h1 className="font-medium text-xl">Connect</h1>
-            <a href="mailto:info@suncityfilms.com" className="w-max underline">
-              info@suncityfilms.com
+            <a href="mailto:contact@suncitystudios.in" className="w-max underline">
+              contact@suncitystudios.in
             </a>
           </div>
         </div>

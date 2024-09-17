@@ -65,7 +65,7 @@ export default function Nav() {
           >
             <FiYoutube />
           </a>
-          <a className="text-2xl hover:text-theme-pink hover:scale-105 duration-200" href="mailto:info@suncityfilms.com">
+          <a className="text-2xl hover:text-theme-pink hover:scale-105 duration-200" href="mailto:contact@suncitystudios.in">
             {" "}
             <CiMail strokeWidth={'px'}/>{" "}
           </a>
