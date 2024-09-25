@@ -22,7 +22,7 @@ export default function Footer() {
             +98765432190
           </a>
         </div> */}
-        <div className="flex items-center justify-end gap-4 ">
+        <div className="flex items-center justify-center lg:justify-end gap-4 ">
           <div className="flex  items-center lg:justify-normal justify-center mt-4 text-2xl hover:scale-110 duration-300 ">
             <a
               target="_blank"
