@@ -66,7 +66,7 @@ export default function Work({ projects }) {
 
   const uniqueBrands = Array.from(
     new Set(projects.map((project) => project.brand))
-  );
+  ).sort();
 
   const containerVariants = {
     hidden: { opacity: 0 },

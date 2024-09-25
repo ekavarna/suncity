@@ -33,7 +33,7 @@ export default function Who() {
   };
 
   return (
-    <div className="grid mx-4 lg:mx-8 py-16 md:py-24 md:gap-0 gap-8 px-4 grid-cols-1 md:grid-cols-2">
+    <div className="grid px-8 lg:px-12 text-theme-yellow py-16 md:py-24 md:gap-0 gap-8 bg-theme-pink grid-cols-1 md:grid-cols-2">
       <motion.div
         className="uppercase font-Armavir text-5xl md:text-7xl"
         initial="hidden"

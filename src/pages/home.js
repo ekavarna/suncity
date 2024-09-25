@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Player from "../components/player";
 import Footer from "../components/footer";
 import Who from "../components/Who";
 import Nav from "../components/nav";
 import reel from "../assets/Reel.mp4";
-
 import FullscreenModal from "../components/fullscreen";
 import Loader from "../components/loadingScreen";
 import ScrollToTop from "react-scroll-to-top";
-
-import { FaChevronUp } from "react-icons/fa";
+import { FaChevronUp, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 function HomePage({ projects }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const reelVideoRef = useRef(null);
 
   const handleVideoClick = (project) => {
     if (project.id === 1) {
@@ -26,21 +26,31 @@ function HomePage({ projects }) {
   const handleClick = (project) => {
     handleVideoClick(project);
   };
+
+  const toggleMute = () => {
+    setIsMuted((prev) => !prev);
+    if (reelVideoRef.current) {
+      reelVideoRef.current.muted = !reelVideoRef.current.muted;
+    }
+  };
+
   const filteredProjects = projects
     .filter((project) => project.id)
     .sort((a, b) => (a.id === 1 ? -1 : b.id === 1 ? 1 : a.id - b.id));
+
   if (projects.length >= 1) {
     return (
       <div className="h-full w-full bg-white ">
         <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8 ">
           <Nav />
 
-          {/* Delete this div later  */}
-          <div className="relative  h-full rounded-xl lg:mx-8  mx-4  ">
-            <div className="relative w-full h-full ">
+          {/* Reel video section with unmute button */}
+          <div className="relative h-full rounded-xl lg:mx-8 mx-4">
+            <div className="relative w-full h-full">
               <video
+                ref={reelVideoRef}
                 className="w-full object-cover h-full rounded-3xl"
-                muted
+                muted={isMuted}
                 autoPlay
                 onContextMenu={(e) => e.preventDefault()}
                 loop
@@ -50,10 +60,24 @@ function HomePage({ projects }) {
                 <source src={reel} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+
+              {/* Unmute button */}
+              <button
+                onClick={toggleMute}
+                className="absolute bottom-4 right-4 z-10 text-white "
+              >
+                {isMuted ? (
+                  <FaVolumeMute className="text-xl" />
+                ) : (
+                  <FaVolumeUp className="text-xl" />
+                )}
+              </button>
             </div>
           </div>
+
+          {/* Other projects */}
           {filteredProjects &&
-            filteredProjects.slice(0,5).map((project, index) => (
+            filteredProjects.slice(0, 5).map((project, index) => (
               <div
                 key={index}
                 onClick={(e) => handleClick(project)}
@@ -66,16 +90,18 @@ function HomePage({ projects }) {
                 />
               </div>
             ))}
+
           <ScrollToTop
             smooth
-            component={<FaChevronUp className="text-2xl  text-black" />}
-            className="rounded-full flex items-center justify-center  btn-circle shadow-xl  hover:scale-105 duration-300"
+            component={<FaChevronUp className="text-2xl text-black" />}
+            className="rounded-full flex items-center justify-center btn-circle shadow-xl hover:scale-105 duration-300"
           />
 
           <Who />
         </div>
 
         <Footer />
+
         {isModalOpen && (
           <FullscreenModal
             isOpen={isModalOpen}

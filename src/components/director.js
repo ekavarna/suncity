@@ -37,7 +37,7 @@ export default function Director({ isOpen, onClose }) {
         </div>
         <div className=" basis-1/2 space-y-2 md:text-left ">
           <h1 className=" font-light  uppercase">director</h1>
-          <h1 className="font-Armavir text-2xl  uppercase">Rahul Bharti </h1>
+          <h1 className="font-Armavir text-2xl text-theme-yellow  uppercase">Rahul Bharti </h1>
           <div className="font-light text-justify text-sm space-y-4 ">
             <p>
               Rahul Bharti is a seasoned director whose humour is so intelligent

@@ -1,5 +1,5 @@
 // import logo from "../assets/logomain.png";
-import logo from "../assets/logoyellow.png";
+import logo from "../assets/logowhite.png";
 
 import { useState } from "react";
 import FlipLink from "./TextAnimations/flipText";
@@ -28,7 +28,7 @@ export default function Nav() {
           </a>
         </div>
         <div className=" flex">
-          <ul className="menu text-lg    tracking-widest menu-horizontal px-1">
+          <ul className=" text-lg    tracking-widest  flex  gap-4 px-1">
             <li className="py-0">
               <a
                 className="
@@ -49,7 +49,7 @@ export default function Nav() {
 
         <div className="flex items-center  text-xl justify-center gap-4">
           <a
-            className="text-2xl hover:text-theme-pink hover:scale-105 duration-200"
+            className="text-xl md:text-2xl hover:text-theme-pink hover:scale-105 duration-200"
             target="_blank"
             rel="noreferrer"
             href="https://www.instagram.com/suncity.films"
@@ -58,14 +58,14 @@ export default function Nav() {
           </a>
 
           <a
-            className="text-2xl hover:text-theme-pink hover:scale-105 duration-200"
+            className="text-xl md:text-2xl hover:text-theme-pink hover:scale-105 duration-200"
             target="_blank"
             rel="noreferrer"
             href="https://www.youtube.com/@suncityfilms"
           >
             <FiYoutube />
           </a>
-          <a className="text-2xl hover:text-theme-pink hover:scale-105 duration-200" href="mailto:contact@suncitystudios.in">
+          <a className="text-xl md:text-2xl hover:text-theme-pink hover:scale-105 duration-200" href="mailto:contact@suncitystudios.in">
             {" "}
             <CiMail strokeWidth={'px'}/>{" "}
           </a>
