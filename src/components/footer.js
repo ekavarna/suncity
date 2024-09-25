@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaVimeo } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 
 export default function Footer() {
@@ -42,6 +42,16 @@ export default function Footer() {
               className="w-max  "
             >
               <FiYoutube />
+            </a>
+          </div>
+          <div className="flex items-center lg:justify-normal justify-center mt-4 text-2xl hover:scale-110 duration-300 ">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.vimeo.com/"
+              className="w-max  "
+            >
+              <FaVimeo />
             </a>
           </div>
         </div>

@@ -11,7 +11,7 @@ const FlipLink = ({ children }) => {
     <motion.div
       initial="initial"
       whileHover="hovered"
-      className="relative block overflow-hidden whitespace-nowrap "
+      className="relative uppercase block overflow-hidden whitespace-nowrap "
     >
       <div>
         {text.split("").map((l, i) => (
