@@ -28,7 +28,7 @@ export default function Nav() {
           </a>
         </div>
         <div className=" flex">
-          <ul className=" text-lg    tracking-widest  flex  gap-4 px-1">
+          <ul className=" text-lg uppercase    tracking-widest  flex  gap-4 px-1">
             <li className="py-0">
               <a
                 className="
