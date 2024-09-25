@@ -13,6 +13,7 @@ function HomePage({ projects }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [isVideoReady, setIsVideoReady] = useState(false); // Track if the video is ready
   const reelVideoRef = useRef(null);
 
   const handleVideoClick = (project) => {
@@ -40,11 +41,11 @@ function HomePage({ projects }) {
 
   if (projects.length >= 1) {
     return (
-      <div className="h-full w-full bg-white ">
-        <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8 ">
+      <div className="h-full w-full bg-white">
+        <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8">
           <Nav />
 
-          {/* Reel video section with unmute button */}
+          {/* Reel video section with mute button */}
           <div className="relative h-full rounded-xl lg:mx-8 mx-4">
             <div className="relative w-full h-full">
               <video
@@ -56,22 +57,26 @@ function HomePage({ projects }) {
                 loop
                 playsInline
                 preload="auto"
+                onLoadedData={() => setIsVideoReady(true)} // Video loaded event
+                onPlay={() => setIsVideoReady(true)} // Video playing event
               >
                 <source src={reel} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
-              {/* Unmute button */}
-              <button
-                onClick={toggleMute}
-                className="absolute top-4 right-4 z-10 text-white "
-              >
-                {isMuted ? (
-                  <FaVolumeMute className="text-xl" />
-                ) : (
-                  <FaVolumeUp className="text-xl" />
-                )}
-              </button>
+              {/* Show mute button only when video is ready */}
+              {isVideoReady && (
+                <button
+                  onClick={toggleMute}
+                  className="absolute top-4 right-4 z-10 text-white"
+                >
+                  {isMuted ? (
+                    <FaVolumeMute className="text-xl" />
+                  ) : (
+                    <FaVolumeUp className="text-xl" />
+                  )}
+                </button>
+              )}
             </div>
           </div>
 
