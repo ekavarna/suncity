@@ -64,7 +64,7 @@ function HomePage({ projects }) {
               {/* Unmute button */}
               <button
                 onClick={toggleMute}
-                className="absolute bottom-4 right-4 z-10 text-white "
+                className="absolute top-4 right-4 z-10 text-white "
               >
                 {isMuted ? (
                   <FaVolumeMute className="text-xl" />

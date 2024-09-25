@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const Player = ({ url, title, description }) => {
-  console.log(url);
+
   return (
     <div className="relative  h-full rounded-xl lg:mx-8  mx-4  ">
       <div className="relative w-full h-full ">
@@ -44,11 +44,7 @@ const Player = ({ url, title, description }) => {
             <h1 className="text-xs md:text-base font-medium">Project Name</h1>
           </div>
 
-          <div className="text-justify hidden md:block  font-light text-xs md:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
-          </div>
+     
         </div>
       </motion.div>
       <div className="absolute inset-0 text-center md:hidden flex items-center justify-center">

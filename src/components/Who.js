@@ -64,7 +64,7 @@ export default function Who() {
         transition={{
           duration: 1
         }}
-        className="text-justify font-light   my-auto"
+        className="text-justify font-medium   my-auto"
       >
         At Sun City Studios, we turn laughter into an art form and every story
         is a masterpiece in the making. We thrive on bringing unforgettable
