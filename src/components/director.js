@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import director from "../assets/director.webp";
+import { IoCloseSharp } from "react-icons/io5";
 
 export default function Director({ isOpen, onClose }) {
   useEffect(() => {
@@ -24,20 +25,25 @@ export default function Director({ isOpen, onClose }) {
         isOpen ? "translate-x-0" : "translate-x-full"
       } flex items-center justify-center lg:px-24   px-4`}
     >
-      <button className="absolute top-5 right-5 text-4xl" onClick={onClose}>
-        &times;
+      <button
+        className="absolute rounded-full border border-white btn btn-circle btn-xs text-xl  z-10 top-4 right-4 "
+        onClick={onClose}
+      >
+        <IoCloseSharp />
       </button>
       <div className="flex flex-col  md:flex-row items-center justify-center gap-8 max-w-[820px]  my-auto py-4">
-        <div className="relative aspect-[2/3] w-full max-w-xs ">
+        <div className="relative aspect-[3/4] w-full max-w-xs ">
           <img
             src={director}
             alt="Director"
-            className="h-full w-full object-cover shadow-lg"
+            className="h-full w-full object-cover     rounded-xl shadow-lg"
           />
         </div>
-        <div className=" basis-1/2 space-y-2 md:text-left ">
-          <h1 className=" font-light  uppercase">director</h1>
-          <h1 className="font-Armavir text-2xl text-theme-yellow  uppercase">Rahul Bharti </h1>
+        <div className=" basis-1/2 space-y-2 md:text-left  lg:max-w-full max-w-xs">
+          <h1 className=" font-light text-theme-pink  uppercase">director</h1>
+          <h1 className="font-Armavir text-2xl text-theme-yellow  uppercase">
+            Rahul Bharti{" "}
+          </h1>
           <div className="font-light text-justify text-sm space-y-4 ">
             <p>
               Rahul Bharti is a seasoned director whose humour is so intelligent

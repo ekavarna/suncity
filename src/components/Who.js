@@ -33,7 +33,7 @@ export default function Who() {
   };
 
   return (
-    <div className="grid px-8 lg:px-12 text-theme-yellow py-16 md:py-24 md:gap-0 gap-8 bg-theme-pink grid-cols-1 md:grid-cols-2">
+    <div className="grid mx-4 px-8 lg:px-16 lg:mx-8 text-theme-yellow py-16 md:py-24 rounded-3xl mb-4 lg:mb-8 md:gap-0 gap-4 lg:gap-8 bg-theme-pink grid-cols-1 md:grid-cols-2">
       <motion.div
         className="uppercase font-Armavir text-5xl md:text-7xl"
         initial="hidden"
@@ -55,23 +55,25 @@ export default function Who() {
       <motion.p
         initial={{
           opacity: 0.5,
-          x:50
+          x: 50
         }}
         animate={{
           opacity: 1,
-          x:0
+          x: 0
         }}
         transition={{
           duration: 1
         }}
         className="text-justify font-light   my-auto"
       >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-        voluptatem sequi nesciunt.
+        At Sun City Studios, we turn laughter into an art form and every story
+        is a masterpiece in the making. We thrive on bringing unforgettable
+        tales to life and partnering with creative minds who have a knack for a
+        well-timed punchline. If you’re enthusiastic about crafting comedy that
+        genuinely tickles the funny bone and connects with audiences, we’ve got
+        you covered from sunrise to sunset. After all, we are here to
+        collaborate with the best creatives, agencies and brands to produce some
+        epic advertising.
       </motion.p>
     </div>
   );
