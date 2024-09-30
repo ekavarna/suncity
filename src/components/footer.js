@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram, FaVimeo } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
+import { TbBrandVimeo } from "react-icons/tb";
 
 export default function Footer() {
   return (
@@ -51,7 +52,7 @@ export default function Footer() {
               href="https://www.vimeo.com/"
               className="w-max  "
             >
-              <FaVimeo />
+              <TbBrandVimeo />
             </a>
           </div>
         </div>
