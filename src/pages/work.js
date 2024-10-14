@@ -178,7 +178,11 @@ export default function Work({ projects }) {
                         <motion.button
                           variants={itemVariants}
                           key={index}
-                          className="block  w-full text-xs tracking-widest uppercase hover:text-white text-left px-4 py-2"
+                          className={`block w-full uppercase text-xs font-light tracking-widest text-left px-4 hover:font-medium py-2 ${
+                            activeBrand === brand
+                              ? "text-theme-yellow"
+                              : "text-white"
+                          }`}
                           onClick={() => {
                             toggleBrand(brand);
                             setDropdownOpen(false);
@@ -268,6 +272,8 @@ export default function Work({ projects }) {
               </div>
             )}
           </div>
+
+          {/* SEARCH BAR MOBILE  */}
           <div className="relative w-1/2">
             {" "}
             <input
@@ -275,7 +281,7 @@ export default function Work({ projects }) {
               placeholder="SEARCH"
               className="input w-full bg-black border-white rounded-full text-white uppercase tracking-widest font-semibold text-xs text-left focus:border-white input-xs"
               value={searchTerm}
-              onChange={handleSearch} // Update search term
+              onChange={handleSearch} 
             />
             <div className="absolute right-2 top-1 text-lg">
               <MdSearch />
@@ -332,9 +338,9 @@ export default function Work({ projects }) {
                   >
                     <div className="grid-cols-2   w-full gap-2  text-white grid">
                       <h1 className="uppercase font-Armavir ">
-                        <span className="">Brand Name</span>{" "}
+                        <span className="">{project.brand}</span>{" "}
                       </h1>
-                      <p className="text-xs font-medium">Project Name</p>
+                      <p className="text-xs font-medium">{project.title}</p>
                     </div>
                   </motion.div>
                 </div>
@@ -386,9 +392,9 @@ export default function Work({ projects }) {
                 >
                   <div className="grid-cols-2   w-full gap-2  text-white grid">
                     <h1 className="uppercase font-Armavir ">
-                      <span className="">Brand Name</span>{" "}
+                      <span className="">{project.brand} Name</span>{" "}
                     </h1>
-                    <p className="text-xs font-medium">Project Name</p>
+                    <p className="text-xs font-medium">{project.title}</p>
                   </div>
                 </motion.div>
               </div>

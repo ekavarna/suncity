@@ -18,11 +18,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        {/* <div className="flex  items-center lg:justify-normal justify-center mt-4  ">
-          <a href="tel:+98765432190" className="w-max  ">
-            +98765432190
-          </a>
-        </div> */}
+
         <div className="flex items-center justify-center lg:justify-end gap-4 ">
           <div className="flex  items-center lg:justify-normal justify-center mt-4 text-2xl hover:scale-110 duration-300 ">
             <a
@@ -49,7 +45,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://www.vimeo.com/"
+              href="https://www.vimeo.com/suncitystudios"
               className="w-max  "
             >
               <TbBrandVimeo />

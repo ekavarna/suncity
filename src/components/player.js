@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Player = ({ url, title, description }) => {
+const Player = ({ url, title, brand }) => {
 
   return (
     <div className="relative  h-full rounded-xl lg:mx-8  mx-4  ">
@@ -39,9 +39,9 @@ const Player = ({ url, title, description }) => {
         <div className="grid-cols-2  w-full gap-2 md:gap-0  text-white hidden md:grid">
           <div className=" self-center text-center md:text-left">
             <p className="uppercase font-Armavir md:text-2xl text-xl">
-              Brand Name
+              {brand}
             </p>
-            <h1 className="text-xs md:text-base font-medium">Project Name</h1>
+            <h1 className="text-xs md:text-base font-medium">{title}</h1>
           </div>
 
      
@@ -58,9 +58,9 @@ const Player = ({ url, title, description }) => {
         >
           <div className="grid-cols-2   w-full gap-2  text-white grid">
             <h1 className="uppercase font-Armavir ">
-              <span className="">Brand Name</span>{" "}
+              <span className="">{brand}</span>{" "}
             </h1>
-            <p className="text-xs font-medium">Project Name</p>
+            <p className="text-xs font-medium">{title}</p>
           </div>
         </motion.div>
       </div>

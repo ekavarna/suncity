@@ -90,7 +90,7 @@ function HomePage({ projects }) {
               >
                 <Player
                   title={project.title}
-                  description={project.description}
+                  brand={project.brand}
                   url={project.teaser}
                 />
               </div>
