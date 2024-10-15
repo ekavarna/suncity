@@ -22,7 +22,7 @@ const Player = ({ url, title, brand }) => {
             playsInline
             preload="auto"
           >
-            <source src={url} type="video/mp4" />
+            <source src={`https://cms.suncitystudios.in/${url}`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </motion.div>

@@ -1,18 +1,24 @@
 let projectsCache = null;
 let cacheTimestamp = null;
-const CACHE_EXPIRATION_TIME = 3600000; 
+const CACHE_EXPIRATION_TIME = 3600000;
 
 export const fetchProjectsData = async () => {
   const currentTime = Date.now();
 
-  if (projectsCache && cacheTimestamp && (currentTime - cacheTimestamp) < CACHE_EXPIRATION_TIME) {
-    console.log("Returning cached data");
+  if (
+    projectsCache &&
+    cacheTimestamp &&
+    currentTime - cacheTimestamp < CACHE_EXPIRATION_TIME
+  ) {
+    // console.log("Returning cached data");
     return projectsCache;
   }
 
-  console.log("Fetching new data");
+  // console.log("Fetching new data");
   try {
-    const response = await fetch("https://cms.moonshotmedia.in/api/projects?populate=*&pagination[limit]=-1");
+    const response = await fetch(
+      "https://cms.suncitystudios.in/api/projects?populate=*&pagination[limit]=1000"
+    );
     const results = await response.json();
     const projectsData = results.data.map((item) => flattenObject(item));
 
@@ -20,22 +26,26 @@ export const fetchProjectsData = async () => {
       projectsData
         .map(async (project) => {
           if (project) {
-            const brandResponse = await fetch(`https://cms.moonshotmedia.in/api/brands/${project.attributes_brand_data_id}?populate=Logo`);
-            const brandResults = await brandResponse.json();
+            console.log(project);
+            // const brandResponse = await fetch(
+            //   `https://cms.suncitystudios.in/api/brands/${project.brand_id}?populate=Logo`
+            // );
+            // const brandResults = await brandResponse.json();
 
             return {
-              id: project.attributes_HomeOrder ? project.attributes_HomeOrder : "",
+              id: project.HomeOrder ? project.HomeOrder : "",
               indexId: project.id ? project.id : "",
-              brand: project.attributes_brand_data_attributes_Name,
-              title: project.attributes_Title,
-              description: project.attributes_Summary,
-              link: project.attributes_VideoURL,
-              logo: brandResults.data.attributes.Logo
-                ? `https://cdn.moonshotmedia.in/${brandResults.data.attributes.Logo.data.attributes.hash}${brandResults.data.attributes.Logo.data.attributes.ext}`
-                : "",
-              teaser: project.attributes_TeaserVideo_data_attributes_hash
-                ? `https://cdn.moonshotmedia.in/${project.attributes_TeaserVideo_data_attributes_hash}${project.attributes_TeaserVideo_data_attributes_ext}`
-                : ""
+              brand: project.brand_Name ? project.brand_Name : "",
+              title: project.Title ? project.Title : "",
+              teaser: project.TeaserVideo ? project.TeaserVideo : "",
+              description: project.Summary ? project.Summary : "",
+              link: project.VideoURL ? project.VideoURL : ""
+              // logo: brandResults.data.attributes.Logo
+              //   ? `https://cdn.suncitystudios.in/${brandResults.data.attributes.Logo.data.attributes.hash}${brandResults.data.attributes.Logo.data.attributes.ext}`
+              //   : "",
+              // teaser: project.attributes_TeaserVideo_data_attributes_hash
+              //   ? `https://cdn.suncitystudios.in/${project.attributes_TeaserVideo_data_attributes_hash}${project.attributes_TeaserVideo_data_attributes_ext}`
+              //   : ""
             };
           }
           return null;
@@ -45,10 +55,10 @@ export const fetchProjectsData = async () => {
 
     projectsCache = homeProjects;
     cacheTimestamp = Date.now(); // Update the cache timestamp
-    console.log("Caching new data");
+    // console.log("Caching new data");
     return homeProjects;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     return [];
   }
 };

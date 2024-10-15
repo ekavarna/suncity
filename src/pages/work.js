@@ -9,6 +9,7 @@ import Nav from "../components/nav";
 import Fuse from "fuse.js";
 
 export default function Work({ projects }) {
+
   const [activeBrand, setActiveBrand] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -18,7 +19,7 @@ export default function Work({ projects }) {
 
   const searchRef = useRef(null);
   const videoContainerRef = useRef(null);
-
+console.log('brand',projects)
   useEffect(() => {
     if (videoContainerRef.current) {
       videoContainerRef.current.scrollTo(0, 0);
@@ -281,7 +282,7 @@ export default function Work({ projects }) {
               placeholder="SEARCH"
               className="input w-full bg-black border-white rounded-full text-white uppercase tracking-widest font-semibold text-xs text-left focus:border-white input-xs"
               value={searchTerm}
-              onChange={handleSearch} 
+              onChange={handleSearch}
             />
             <div className="absolute right-2 top-1 text-lg">
               <MdSearch />
@@ -315,7 +316,7 @@ export default function Work({ projects }) {
                   console.error("Error loading video:", e.currentTarget.error);
                 }}
               >
-                <source src={project.teaser} type="video/mp4" />
+                <source src={`https://cms.suncitystudios.in/${project.teaser}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div
@@ -375,7 +376,7 @@ export default function Work({ projects }) {
                 loop
                 playsInline
               >
-                <source src={project.teaser} type="video/mp4" />
+                <source src={`https://cms.suncitystudios.in/${project.teaser}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div

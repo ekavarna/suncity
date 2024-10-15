@@ -1,9 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import Player from "../components/player";
 import Footer from "../components/footer";
 import Who from "../components/Who";
 import Nav from "../components/nav";
-import reel from "../assets/Reel.mp4";
 import FullscreenModal from "../components/fullscreen";
 import Loader from "../components/loadingScreen";
 import ScrollToTop from "react-scroll-to-top";
@@ -15,6 +14,7 @@ function HomePage({ projects }) {
   const [isMuted, setIsMuted] = useState(true);
   const [isVideoReady, setIsVideoReady] = useState(false); // Track if the video is ready
   const reelVideoRef = useRef(null);
+  const reelMobileVideoRef = useRef(null);
 
   const handleVideoClick = (project) => {
     if (project.id === 1) {
@@ -33,11 +33,18 @@ function HomePage({ projects }) {
     if (reelVideoRef.current) {
       reelVideoRef.current.muted = !reelVideoRef.current.muted;
     }
+    if (reelMobileVideoRef.current) {
+      reelMobileVideoRef.current.muted = !reelMobileVideoRef.current.muted;
+    }
   };
 
   const filteredProjects = projects
     .filter((project) => project.id)
     .sort((a, b) => (a.id === 1 ? -1 : b.id === 1 ? 1 : a.id - b.id));
+
+  const reelMobileProject = useMemo(() => {
+    return projects.find((project) => project.title === "ReelMobile");
+  }, [projects]);
 
   if (projects.length >= 1) {
     return (
@@ -45,8 +52,8 @@ function HomePage({ projects }) {
         <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8">
           <Nav />
 
-          {/* Reel video section with mute button */}
-          <div className="relative h-full rounded-xl lg:mx-8 mx-4">
+          {/* Reel video section with mute button for desktop */}
+          <div className="relative h-full hidden lg:block rounded-xl lg:mx-8 mx-4">
             <div className="relative w-full h-full">
               <video
                 ref={reelVideoRef}
@@ -58,11 +65,53 @@ function HomePage({ projects }) {
                 playsInline
                 preload="auto"
                 onLoadedData={() => setIsVideoReady(true)} // Video loaded event
-                onPlay={() => setIsVideoReady(true)} // Video playing event
               >
-                <source src={reel} type="video/mp4" />
+                <source
+                  src={`https://cms.suncitystudios.in/uploads/Reel_d8c7daa11a.mp4`}
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
+
+              {/* Show mute button only when video is ready */}
+              {isVideoReady && (
+                <button
+                  onClick={toggleMute}
+                  className="absolute top-4 right-4 z-10 text-white"
+                >
+                  {isMuted ? (
+                    <FaVolumeMute className="text-xl" />
+                  ) : (
+                    <FaVolumeUp className="text-xl" />
+                  )}
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* MOBILE REEL */}
+          <div className="relative w-full lg:hidden block">
+            <div className="object-cover rounded-lg w-full h-full">
+              {reelMobileProject && (
+                <video
+                  controls={false}
+                  ref={reelMobileVideoRef}
+                  autoPlay
+                  disablePictureInPicture
+                  playsInline
+                  preload="auto"
+                  loop
+                  muted={isMuted}
+                  onLoadedData={() => setIsVideoReady(true)} // Video loaded event
+                  className="h-full w-full"
+                >
+                  <source
+                    src={`https://cms.suncitystudios.in/${reelMobileProject.teaser}`}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              )}
 
               {/* Show mute button only when video is ready */}
               {isVideoReady && (
@@ -118,7 +167,7 @@ function HomePage({ projects }) {
                     title: selectedVideo.title,
                     description: selectedVideo.description,
                     isActive: true,
-                    showControls: true
+                    showControls: true,
                   }
                 : {}
             }
