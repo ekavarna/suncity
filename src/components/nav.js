@@ -19,7 +19,6 @@ export default function Nav() {
           <a href="/" className=" object-contain  ">
             <img
               src={logo}
-              priority
               alt=""
               width={300}
               height={300}

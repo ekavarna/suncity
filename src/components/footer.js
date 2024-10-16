@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaVimeo } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { TbBrandVimeo } from "react-icons/tb";
 

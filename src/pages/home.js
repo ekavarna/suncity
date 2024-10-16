@@ -41,7 +41,6 @@ function HomePage({ projects }) {
   const filteredProjects = projects
     .filter((project) => project.id)
     .sort((a, b) => (a.id === 1 ? -1 : b.id === 1 ? 1 : a.id - b.id));
-  console.log(filteredProjects[0]);
 
   const reelMobileProject = useMemo(() => {
     return projects.find((project) => project.title === "ReelMobile");

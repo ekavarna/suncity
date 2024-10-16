@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import director from "../assets/director.webp";
 import { IoCloseSharp } from "react-icons/io5";
 
 export default function Director({ isOpen, onClose }) {
