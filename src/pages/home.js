@@ -41,52 +41,55 @@ function HomePage({ projects }) {
   const filteredProjects = projects
     .filter((project) => project.id)
     .sort((a, b) => (a.id === 1 ? -1 : b.id === 1 ? 1 : a.id - b.id));
+  console.log(filteredProjects[0]);
 
   const reelMobileProject = useMemo(() => {
     return projects.find((project) => project.title === "ReelMobile");
   }, [projects]);
 
-  if (projects.length >= 1) {
+  if (filteredProjects.length >= 1) {
     return (
       <div className="h-full w-full bg-white">
         <div className="flex flex-col bg-black items-center gap-y-4 md:gap-y-8">
           <Nav />
 
           {/* Reel video section with mute button for desktop */}
-          <div className="relative h-full hidden lg:block rounded-xl lg:mx-8 mx-4">
-            <div className="relative w-full h-full">
-              <video
-                ref={reelVideoRef}
-                className="w-full object-cover h-full rounded-3xl"
-                muted={isMuted}
-                autoPlay
-                onContextMenu={(e) => e.preventDefault()}
-                loop
-                playsInline
-                preload="auto"
-                onLoadedData={() => setIsVideoReady(true)} // Video loaded event
-              >
-                <source
-                  src={`https://cms.suncitystudios.in/uploads/Reel_d8c7daa11a.mp4`}
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-
-              {/* Show mute button only when video is ready */}
-              {isVideoReady && (
-                <button
-                  onClick={toggleMute}
-                  className="absolute top-4 right-4 z-10 text-white"
+          <div className="relative h-full  hidden lg:block  rounded-xl lg:mx-8 mx-4">
+            {filteredProjects.length > 0 && (
+              <div className="relative w-full h-full">
+                <video
+                  ref={reelVideoRef}
+                  className="w-full object-cover h-full rounded-3xl"
+                  muted={isMuted}
+                  autoPlay
+                  onContextMenu={(e) => e.preventDefault()}
+                  loop
+                  playsInline
+                  preload="auto"
+                  onLoadedData={() => setIsVideoReady(true)} // Video loaded event
                 >
-                  {isMuted ? (
-                    <FaVolumeMute className="text-xl" />
-                  ) : (
-                    <FaVolumeUp className="text-xl" />
-                  )}
-                </button>
-              )}
-            </div>
+                  <source
+                    src={`https://cms.suncitystudios.in/${filteredProjects[0].teaser}`}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Show mute button only when video is ready */}
+                {isVideoReady && (
+                  <button
+                    onClick={toggleMute}
+                    className="absolute top-4 right-4 z-10 text-white"
+                  >
+                    {isMuted ? (
+                      <FaVolumeMute className="text-xl" />
+                    ) : (
+                      <FaVolumeUp className="text-xl" />
+                    )}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           {/* MOBILE REEL */}
@@ -95,14 +98,12 @@ function HomePage({ projects }) {
               {reelMobileProject && (
                 <video
                   controls={false}
-                  ref={reelMobileVideoRef}
                   autoPlay
                   disablePictureInPicture
                   playsInline
                   preload="auto"
                   loop
-                  muted={isMuted}
-                  onLoadedData={() => setIsVideoReady(true)} // Video loaded event
+                  muted
                   className="h-full w-full"
                 >
                   <source
@@ -131,7 +132,7 @@ function HomePage({ projects }) {
 
           {/* Other projects */}
           {filteredProjects &&
-            filteredProjects.slice(0, 6).map((project, index) => (
+            filteredProjects.slice(1, 6).map((project, index) => (
               <div
                 key={index}
                 onClick={(e) => handleClick(project)}
@@ -167,7 +168,7 @@ function HomePage({ projects }) {
                     title: selectedVideo.title,
                     description: selectedVideo.description,
                     isActive: true,
-                    showControls: true,
+                    showControls: true
                   }
                 : {}
             }
