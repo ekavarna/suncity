@@ -26,7 +26,7 @@ export const fetchProjectsData = async () => {
       projectsData
         .map(async (project) => {
           if (project) {
-            console.log(project);
+            // console.log(project);
             // const brandResponse = await fetch(
             //   `https://cms.suncitystudios.in/api/brands/${project.brand_id}?populate=Logo`
             // );
@@ -37,7 +37,7 @@ export const fetchProjectsData = async () => {
               indexId: project.id ? project.id : "",
               brand: project.brand_Name ? project.brand_Name : "",
               title: project.Title ? project.Title : "",
-              teaser: project.TeaserVideo ? project.TeaserVideo : "",
+              teaser: project.TeaserVideo_url ? project.TeaserVideo_url : "",
               description: project.Summary ? project.Summary : "",
               link: project.VideoURL ? project.VideoURL : ""
               // logo: brandResults.data.attributes.Logo

@@ -131,7 +131,7 @@ function HomePage({ projects }) {
 
           {/* Other projects */}
           {filteredProjects &&
-            filteredProjects.slice(0, 5).map((project, index) => (
+            filteredProjects.slice(0, 6).map((project, index) => (
               <div
                 key={index}
                 onClick={(e) => handleClick(project)}

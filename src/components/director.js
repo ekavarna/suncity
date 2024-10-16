@@ -34,7 +34,7 @@ export default function Director({ isOpen, onClose }) {
       <div className="flex flex-col  md:flex-row items-center justify-center gap-8 max-w-[820px]  my-auto py-4">
         <div className="relative aspect-[3/4] w-full max-w-xs ">
           <img
-            src={director}
+            src='https://cms.suncitystudios.in/uploads/director_3253b8e772.webp'
             alt="Director"
             className="h-full w-full object-cover     rounded-xl shadow-lg"
           />

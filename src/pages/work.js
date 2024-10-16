@@ -9,7 +9,6 @@ import Nav from "../components/nav";
 import Fuse from "fuse.js";
 
 export default function Work({ projects }) {
-
   const [activeBrand, setActiveBrand] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -19,7 +18,7 @@ export default function Work({ projects }) {
 
   const searchRef = useRef(null);
   const videoContainerRef = useRef(null);
-console.log('brand',projects)
+  // console.log("brand", projects);
   useEffect(() => {
     if (videoContainerRef.current) {
       videoContainerRef.current.scrollTo(0, 0);
@@ -60,14 +59,24 @@ console.log('brand',projects)
       });
     }
   }, [projects, activeBrand, searchTerm]);
+
   const handleVideoClick = (project) => {
     setSelectedVideo(project);
     setIsBModalOpen(true);
   };
 
   const uniqueBrands = Array.from(
-    new Set(projects.map((project) => project.brand))
+    new Set(
+      projects
+        .filter(
+          (project) =>
+            project.title !== "Reel" && project.title !== "ReelMobile"
+        )
+        .map((project) => project.brand)
+    )
   ).sort();
+
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -316,7 +325,10 @@ console.log('brand',projects)
                   console.error("Error loading video:", e.currentTarget.error);
                 }}
               >
-                <source src={`https://cms.suncitystudios.in/${project.teaser}`} type="video/mp4" />
+                <source
+                  src={`https://cms.suncitystudios.in/${project.teaser}`}
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
               <div
@@ -376,7 +388,10 @@ console.log('brand',projects)
                 loop
                 playsInline
               >
-                <source src={`https://cms.suncitystudios.in/${project.teaser}`} type="video/mp4" />
+                <source
+                  src={`https://cms.suncitystudios.in/${project.teaser}`}
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
               <div

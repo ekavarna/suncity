@@ -6,7 +6,6 @@ import Work from "./pages/work";
 import HomePage from "./pages/home";
 
 function App() {
-
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -18,13 +17,16 @@ function App() {
     loadProjectsData();
     return () => {};
   }, []);
-console.log(projects)
+
   return (
     <Router>
       <div className="bg-black font-Roboto text-white h-full overflow-hidden w-screen">
         <Routes>
           <Route path="/" element={<HomePage projects={projects} />} />
-          <Route path="/work" element={<Work projects={projects&& projects} />} />
+          <Route
+            path="/work"
+            element={<Work projects={projects && projects} />}
+          />
         </Routes>
       </div>
     </Router>
