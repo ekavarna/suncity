@@ -27,10 +27,11 @@ export const fetchProjectsData = async () => {
         .map(async (project) => {
           if (project) {
             // console.log(project);
-            // const brandResponse = await fetch(
-            //   `https://cms.suncitystudios.in/api/brands/${project.brand_id}?populate=Logo`
-            // );
-            // const brandResults = await brandResponse.json();
+            const brandResponse = await fetch(
+              `https://cms.suncitystudios.in/api/brands/${project.brand_documentId}?populate=Logo`
+            );
+            const brandResults = await brandResponse.json();
+            // console.log(brandResults.data);
 
             return {
               id: project.HomeOrder ? project.HomeOrder : "",
@@ -39,7 +40,8 @@ export const fetchProjectsData = async () => {
               title: project.Title ? project.Title : "",
               teaser: project.TeaserVideo_url ? project.TeaserVideo_url : "",
               description: project.Summary ? project.Summary : "",
-              link: project.VideoURL ? project.VideoURL : ""
+              link: project.VideoURL ? project.VideoURL : "",
+              logo: brandResults.data.Logo?.url ? brandResults.data.Logo.url : ""
               // logo: brandResults.data.attributes.Logo
               //   ? `https://cdn.suncitystudios.in/${brandResults.data.attributes.Logo.data.attributes.hash}${brandResults.data.attributes.Logo.data.attributes.ext}`
               //   : "",
