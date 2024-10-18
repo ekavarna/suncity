@@ -19,7 +19,7 @@ export default function Nav() {
           <a href="/" className=" object-contain  ">
             <img
               src={logo}
-              alt=""
+              alt="Sun City Studios Logo"
               width={300}
               height={300}
               className="w-[4rem] md:w-[8rem] "

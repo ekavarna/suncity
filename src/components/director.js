@@ -34,7 +34,7 @@ export default function Director({ isOpen, onClose }) {
         <div className="relative aspect-[3/4] w-full max-w-xs ">
           <img
             src='https://cms.suncitystudios.in/uploads/director_3253b8e772.webp'
-            alt="Director"
+            alt="Director Rahul Bharti  Sun City Studios"
             className="h-full w-full object-cover     rounded-xl shadow-lg"
           />
         </div>
