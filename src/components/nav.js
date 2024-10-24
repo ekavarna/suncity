@@ -1,5 +1,5 @@
 // import logo from "../assets/logomain.png";
-import logo from "../assets/logowhite.png";
+import logo from "../assets/logoyellow.png";
 
 import { useState } from "react";
 import FlipLink from "./TextAnimations/flipText";

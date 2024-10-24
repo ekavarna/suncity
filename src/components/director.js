@@ -43,7 +43,7 @@ export default function Director({ isOpen, onClose }) {
           <h1 className="font-Armavir text-2xl text-theme-yellow  uppercase">
             Rahul Bharti{" "}
           </h1>
-          <div className="font-light text-justify text-sm space-y-4 ">
+          <div className="font-light text-left md:text-justify text-sm space-y-4 ">
             <p>
               Rahul Bharti is a seasoned director whose humour is so intelligent
               and subtle it’s practically wearing reading glasses. He has a
