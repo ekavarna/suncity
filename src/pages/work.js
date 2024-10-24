@@ -351,7 +351,7 @@ export default function Work({ projects }) {
                   >
                     <div className="grid-cols-2   w-full gap-2  text-white grid">
                       <h1 className="uppercase font-Armavir ">
-                        <span className="">{project.brand}</span>{" "}
+                        <span className="text-sm">{project.brand}</span>{" "}
                       </h1>
                       <p className="text-xs font-medium">{project.title}</p>
                     </div>
@@ -408,7 +408,7 @@ export default function Work({ projects }) {
                 >
                   <div className="grid-cols-2   w-full gap-2  text-white grid">
                     <h1 className="uppercase font-Armavir ">
-                      <span className="">{project.brand} Name</span>{" "}
+                      <span className="text-sm">{project.brand}</span>{" "}
                     </h1>
                     <p className="text-xs font-medium">{project.title}</p>
                   </div>

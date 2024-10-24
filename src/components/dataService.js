@@ -22,6 +22,7 @@ export const fetchProjectsData = async () => {
     const results = await response.json();
     const projectsData = results.data.map((item) => flattenObject(item));
 
+
     const homeProjects = await Promise.all(
       projectsData
         .map(async (project) => {
@@ -31,7 +32,7 @@ export const fetchProjectsData = async () => {
               `https://cms.suncitystudios.in/api/brands/${project.brand_documentId}?populate=Logo`
             );
             const brandResults = await brandResponse.json();
-            // console.log(brandResults.data);
+
 
             return {
               id: project.HomeOrder ? project.HomeOrder : "",
