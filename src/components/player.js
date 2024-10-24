@@ -82,7 +82,7 @@ const Player = ({ url, title, brand }) => {
             className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
           >
             <div className="w-full gap-2 p-2 text-white flex items-center">
-              <h1 className="uppercase font-Armavir ">
+              <h1 className="uppercase text-sm font-Armavir ">
               {brand}
               </h1>
               <h1>|</h1>
