@@ -76,8 +76,6 @@ export default function Work({ projects }) {
     )
   ).sort();
 
-
-
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -349,12 +347,14 @@ export default function Work({ projects }) {
                     }}
                     className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
                   >
-                    <div className="grid-cols-2   w-full gap-2  text-white flex items-center">
-                      <h1 className="uppercase font-Armavir ">
-                        <span className="text-sm">{project.brand}</span>{" "}
+                    <div className="  w-full gap-2   text-white flex items-center">
+                      <h1 className="uppercase text-sm font-Armavir ">
+                        {project.brand}
                       </h1>
                       <h1>|</h1>
-                      <p className="text-xs font-medium">{project.title}</p>
+                      <p className="text-xs  text-left font-medium">
+                        {project.title}
+                      </p>
                     </div>
                   </motion.div>
                 </div>
