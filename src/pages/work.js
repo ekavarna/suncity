@@ -349,10 +349,11 @@ export default function Work({ projects }) {
                     }}
                     className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
                   >
-                    <div className="grid-cols-2   w-full gap-2  text-white grid">
+                    <div className="grid-cols-2   w-full gap-2  text-white flex items-center">
                       <h1 className="uppercase font-Armavir ">
                         <span className="text-sm">{project.brand}</span>{" "}
                       </h1>
+                      <h1>|</h1>
                       <p className="text-xs font-medium">{project.title}</p>
                     </div>
                   </motion.div>
@@ -395,7 +396,7 @@ export default function Work({ projects }) {
                 Your browser does not support the video tag.
               </video>
               <div
-                className="absolute inset-0 text-center flex items-center justify-center"
+                className="absolute inset-0  flex items-center justify-center"
                 onClick={() => handleVideoClick(project)}
               >
                 <motion.div
@@ -406,10 +407,11 @@ export default function Work({ projects }) {
                   }}
                   className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
                 >
-                  <div className="grid-cols-2   w-full gap-2  text-white grid">
+                  <div className="   w-full gap-2  text-white flex items-center">
                     <h1 className="uppercase font-Armavir ">
                       <span className="text-sm">{project.brand}</span>{" "}
                     </h1>
+                    <h1>|</h1>
                     <p className="text-xs font-medium">{project.title}</p>
                   </div>
                 </motion.div>
