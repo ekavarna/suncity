@@ -81,11 +81,12 @@ const Player = ({ url, title, brand }) => {
             }}
             className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
           >
-            <div className="grid-cols-2   w-full gap-2  text-white grid">
+            <div className="w-full gap-2 p-2 text-white flex items-center">
               <h1 className="uppercase font-Armavir ">
-                <span className="">{brand}</span>{" "}
+              {brand}
               </h1>
-              <p className="text-xs font-medium">{title}</p>
+              <h1>|</h1>
+              <h1 className="text-xs text-left font-medium">{title}</h1>
             </div>
           </motion.div>
         </div>

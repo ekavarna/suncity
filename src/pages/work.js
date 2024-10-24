@@ -352,9 +352,9 @@ export default function Work({ projects }) {
                         {project.brand}
                       </h1>
                       <h1>|</h1>
-                      <p className="text-xs  text-left font-medium">
+                      <h1 className="text-xs  text-left font-medium">
                         {project.title}
-                      </p>
+                      </h1>
                     </div>
                   </motion.div>
                 </div>
@@ -407,12 +407,12 @@ export default function Work({ projects }) {
                   }}
                   className="absolute inset-0  mt-4  flex gap-4 bg-gradient-to-t from-black/50 to-transparent  items-end justify-center p-2   w-full"
                 >
-                  <div className="   w-full gap-2  text-white flex items-center">
+                  <div className="  w-full gap-2  text-white flex items-center">
                     <h1 className="uppercase font-Armavir ">
                       <span className="text-sm">{project.brand}</span>{" "}
                     </h1>
                     <h1>|</h1>
-                    <p className="text-xs font-medium">{project.title}</p>
+                    <h1 className="text-xs font-medium">{project.title}</h1>
                   </div>
                 </motion.div>
               </div>
