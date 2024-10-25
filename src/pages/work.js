@@ -420,7 +420,7 @@ export default function Work({ projects }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-between font-light px-4 md:px-8 pb-4 text-sm mx-0  fixed bottom-0 left-0  w-full right-0   items-center">
+      <div className="flex justify-between font-light px-4 md:px-12 pb-4 text-sm mx-0  fixed bottom-0 left-0  w-full right-0   items-center">
         <h1 className="">2024. Copyright. All rights reserved.</h1>
         <h1 className="">Sun City Studios</h1>
       </div>
