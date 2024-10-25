@@ -33,7 +33,7 @@ export default function Director({ isOpen, onClose }) {
       <div className="flex flex-col  md:flex-row items-center justify-center gap-8 max-w-[820px]  my-auto py-4">
         <div className="relative aspect-[3/4] w-full max-w-xs ">
           <img
-            src='https://cms.suncitystudios.in/uploads/director_3253b8e772.webp'
+            src="https://cms.suncitystudios.in/uploads/director_3253b8e772.webp"
             alt="Director Rahul Bharti  Sun City Studios"
             className="h-full w-full object-cover     rounded-xl shadow-lg"
           />
@@ -47,14 +47,14 @@ export default function Director({ isOpen, onClose }) {
             <p>
               Rahul Bharti is a seasoned director whose humour is so intelligent
               and subtle it’s practically wearing reading glasses. He has a
-              filmmaking style that’s like a well-tailored suit—unassuming yet
+              filmmaking style that’s like a well-tailored suit unassuming yet
               unforgettable. His approach is modest, but don’t let that fool
               you; it packs a punch sharper than a box of witty one-liners.
               Bharti excels at taking everyday scenarios and giving them a twist
               so unique you’d think he’s got a secret deal with the universe.
             </p>
             <p>
-              His films are like your favourite pair of jeans — comfortably
+              His films are like your favourite pair of jeans, comfortably
               relatable but with just enough flair to make everyone take a
               second look. With a keen eye for detail and an uncanny
               understanding of human quirks, he crafts stories that resonate so

@@ -121,11 +121,11 @@ export default function Work({ projects }) {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center bg-black text-white min-h-screen relative">
+    <div className="w-full flex flex-col justify-end bg-black text-white min-h-screen relative">
       <div className="fixed top-0 w-full z-10">
         <Nav />
       </div>
-      <div className="w-full flex flex-col h-full fixed top-[8%]  max-h-[95%]     p-4 md:p-16 overflow-auto">
+      <div className="w-full flex flex-col h-full fixed top-[8%]  lg:max-h-[98%]   max-h-[92%]  p-4 md:p-16 overflow-auto">
         <div className="md:flex flex-row hidden items-center justify-between w-full mt-8 flex-wrap">
           <div className="flex flex-row  gap-6 items-center">
             <button
@@ -420,7 +420,10 @@ export default function Work({ projects }) {
           ))}
         </div>
       </div>
-
+      <div className="flex justify-between font-light px-4 pb-4 text-sm mx-0 md:mx-8  items-center">
+        <h1 className="">2024. Copyright. All rights reserved.</h1>
+        <h1 className="">Sun City Studios</h1>
+      </div>
       {/* Fullscreen modal */}
 
       {isBModalOpen && (

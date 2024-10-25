@@ -14,7 +14,7 @@ export default function Footer() {
               href="mailto:contact@suncitystudios.in"
               className="w-max underline"
             >
-              contact@suncitystudios.in
+            contact@suncitystudios.in
             </a>
           </div>
         </div>
