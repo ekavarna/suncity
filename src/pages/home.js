@@ -53,7 +53,7 @@ function HomePage({ projects }) {
           <Nav />
 
           {/* Reel video section with mute button for desktop */}
-          <div className="relative h-full  hidden lg:block  rounded-xl lg:mx-8 mx-4">
+          <div className="relative h-full w-full hidden lg:block  rounded-xl lg:px-8 px-4">
             {filteredProjects.length > 0 && (
               <div className="relative w-full h-full">
                 <video
