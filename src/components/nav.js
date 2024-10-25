@@ -30,8 +30,7 @@ export default function Nav() {
           <ul className="      tracking-widest  flex  gap-4 px-1">
             <li className="py-0 ">
               <a
-                className="
-              "
+                className=""
                 href="/work"
               >
                 <FlipLink>Work</FlipLink>
@@ -64,9 +63,12 @@ export default function Nav() {
           >
             <FiYoutube />
           </a>
-          <a className="text-xl md:text-2xl hover:text-theme-pink hover:scale-105 duration-200" href="mailto:contact@suncitystudios.in">
+          <a
+            className="text-xl md:text-2xl hover:text-theme-pink hover:scale-105 duration-200"
+            href="mailto:contact@suncitystudios.in"
+          >
             {" "}
-            <CiMail strokeWidth={'px'}/>{" "}
+            <CiMail strokeWidth={"px"} />{" "}
           </a>
         </div>
       </div>

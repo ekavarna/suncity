@@ -26,7 +26,7 @@ const FlipLink = ({ children }) => {
               ease: "easeInOut",
               delay: STAGGER * i,
             }}
-            className="inline-block"
+            className="inline-block "
           >
             {l === " " ? "\u00A0" : l} {/* Handle spaces */}
           </motion.span>
