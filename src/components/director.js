@@ -54,7 +54,7 @@ export default function Director({ isOpen, onClose }) {
               so unique you’d think he’s got a secret deal with the universe.
             </p>
             <p>
-              His films are like your favourite pair of jeans—comfortably
+              His films are like your favourite pair of jeans — comfortably
               relatable but with just enough flair to make everyone take a
               second look. With a keen eye for detail and an uncanny
               understanding of human quirks, he crafts stories that resonate so
