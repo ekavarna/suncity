@@ -66,14 +66,13 @@ export default function Who() {
         }}
         className="text-left  md:text-justify font-medium   my-auto"
       >
-        At Sun City Studios, we turn laughter into an art form and every story
-        is a masterpiece in the making. We thrive on bringing unforgettable
-        tales to life and partnering with creative minds who have a knack for a
-        well-timed punchline. If you’re enthusiastic about crafting comedy that
-        genuinely tickles the funny bone and connects with audiences, we’ve got
-        you covered from sunrise to sunset. After all, we are here to
-        collaborate with the best creatives, agencies and brands to produce some
-        epic advertising.
+        At Sun City Studios, we thrive on bringing unforgettable tales to life
+        and partnering with creative minds who have a knack for a well-timed
+        punchline. If you’re enthusiastic about crafting comedy that genuinely
+        tickles the funny bone and connects with audiences, we’ve got you
+        covered from sunrise to sunset. After all, we are here to collaborate
+        with the best creatives, agencies and brands to produce some epic
+        advertising.
       </motion.p>
     </div>
   );
