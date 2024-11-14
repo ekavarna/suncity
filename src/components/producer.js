@@ -38,7 +38,7 @@ export default function Producer({ isOpen, onClose }) {
             className="h-full w-full object-cover     rounded-xl shadow-lg"
           />
         </div>
-        <div className=" basis-1/2 space-y-2 md:text-left  lg:max-w-full max-w-xs">
+        <div className=" basis-1/2 space-y-2 md:text-left   max-w-xs">
           <h1 className=" font-light text-theme-pink  uppercase">Producer</h1>
           <h1 className="font-Armavir text-2xl text-theme-yellow  uppercase">
             Zuleikha Gupta{" "}
