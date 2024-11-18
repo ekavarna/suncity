@@ -125,7 +125,7 @@ export default function Work({ projects }) {
       <div className="fixed top-0 w-full z-10">
         <Nav />
       </div>
-      <div className="w-full flex flex-col h-full fixed top-[14%]  lg:max-h-[94%]   max-h-[92%]  p-4 md:p-16 overflow-auto">
+      <div className="w-full flex flex-col h-full fixed top-[8%] lg:top-[14%]  lg:max-h-[94%]   max-h-[92%]  p-4 md:p-16 overflow-auto">
         <div className="md:flex flex-row hidden items-center justify-between w-full mt-6 flex-wrap">
           <div className="flex flex-row  gap-6 items-center">
             <button
