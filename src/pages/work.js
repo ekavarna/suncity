@@ -18,7 +18,6 @@ export default function Work({ projects }) {
 
   const searchRef = useRef(null);
   const videoContainerRef = useRef(null);
-  // console.log("brand", projects);
   useEffect(() => {
     if (videoContainerRef.current) {
       videoContainerRef.current.scrollTo(0, 0);
@@ -41,24 +40,30 @@ export default function Work({ projects }) {
   };
 
   const filteredVideos = useMemo(() => {
-    if (searchTerm) {
-      const fuse = new Fuse(projects, fuseOptions);
-      const results = fuse.search(searchTerm);
-
-      return results
-        .map((result) => result.item) // Extract the project data from results
-        .filter(
-          (project) =>
-            project.title !== "Reel" && project.title !== "ReelMobile"
-        ); // Exclude "Reel" and "ReelMobile"
-    } else {
-      // If no search term, return all projects (optionally filter by brand)
-      return projects.filter((project) => {
-        if (activeBrand && project.brand !== activeBrand) return false;
-        return project.title !== "Reel" && project.title !== "ReelMobile";
-      });
-    }
+    // Filter based on search term and active brand
+    let filtered = projects.filter((project) => {
+      if (searchTerm) {
+        const fuse = new Fuse([project], fuseOptions);
+        const result = fuse.search(searchTerm);
+        return result.length > 0 && project.title !== "Reel" && project.title !== "ReelMobile";
+      }
+  
+      if (activeBrand && project.brand !== activeBrand) return false;
+      return project.title !== "Reel" && project.title !== "ReelMobile";
+    });
+  
+    filtered.sort((a, b) => {
+      // If 'a' has workId and 'b' doesn't, 'a' comes first
+      if (a.workId && !b.workId) return -1;
+      // If 'b' has workId and 'a' doesn't, 'b' comes first
+      if (!a.workId && b.workId) return 1;
+      // If both have or don't have workId, maintain original order (or apply additional sorting)
+      return 0;
+    });
+  
+    return filtered;
   }, [projects, activeBrand, searchTerm]);
+  
 
   const handleVideoClick = (project) => {
     setSelectedVideo(project);
@@ -119,6 +124,7 @@ export default function Work({ projects }) {
       videoElement.pause();
     }, 100); // Debounce to avoid play/pause conflict
   };
+  console.log("filter", filteredVideos);
 
   return (
     <div className="w-full flex flex-col justify-end bg-black text-white min-h-screen relative">
