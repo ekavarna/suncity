@@ -125,8 +125,8 @@ export default function Work({ projects }) {
       <div className="fixed top-0 w-full z-10">
         <Nav />
       </div>
-      <div className="w-full flex flex-col h-full fixed top-[8%]  lg:max-h-[98%]   max-h-[92%]  p-4 md:p-16 overflow-auto">
-        <div className="md:flex flex-row hidden items-center justify-between w-full mt-8 flex-wrap">
+      <div className="w-full flex flex-col h-full fixed top-[14%]  lg:max-h-[94%]   max-h-[92%]  p-4 md:p-16 overflow-auto">
+        <div className="md:flex flex-row hidden items-center justify-between w-full mt-6 flex-wrap">
           <div className="flex flex-row  gap-6 items-center">
             <button
               className={` uppercase tracking-widest  flex items-center justify-center  text-xs group ${
@@ -299,7 +299,7 @@ export default function Work({ projects }) {
 
         <div
           ref={videoContainerRef}
-          className="my-8 md:py-4 hidden bg-black overflow-y-auto  h-full lg:grid grid-cols-4 gap-4 "
+          className="mb-8 mt-4 md:py-4 hidden bg-black overflow-y-auto  h-full lg:grid grid-cols-4 gap-4 "
         >
           {filteredVideos.map((project) => (
             <motion.div
@@ -420,7 +420,7 @@ export default function Work({ projects }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-between font-light px-4 md:px-12 pb-4 text-sm mx-0  fixed bottom-0 left-0  w-full right-0   items-center">
+      <div className="flex justify-between font-light px-4 md:px-12 pb-2 text-sm mx-0  fixed bottom-0 left-0  w-full right-0   items-center">
         <h1 className="">2024. Copyright. All rights reserved.</h1>
         <h1 className="">Sun City Studios</h1>
       </div>
