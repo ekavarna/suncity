@@ -66,7 +66,7 @@ export default function Who() {
         }}
         className="text-left  md:text-justify font-medium   my-auto"
       >
-        At Sun City Studios, we thrive on bringing unforgettable tales to life
+        At Sun City Studios, we thrive on bringing unforgettable stories to life
         and partnering with creative minds who have a knack for a well-timed
         punchline. If you’re enthusiastic about crafting comedy that genuinely
         tickles the funny bone and connects with audiences, we’ve got you
