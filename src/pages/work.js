@@ -40,29 +40,35 @@ export default function Work({ projects }) {
   };
 
   const filteredVideos = useMemo(() => {
-    // Filter based on search term and active brand
     let filtered = projects.filter((project) => {
       if (searchTerm) {
         const fuse = new Fuse([project], fuseOptions);
         const result = fuse.search(searchTerm);
-        return result.length > 0 && project.title !== "Reel" && project.title !== "ReelMobile";
+        return (
+          result.length > 0 &&
+          project.title !== "Reel" &&
+          project.title !== "ReelMobile"
+        );
       }
   
       if (activeBrand && project.brand !== activeBrand) return false;
       return project.title !== "Reel" && project.title !== "ReelMobile";
     });
   
+    // Sorting by workId - showing videos with workId first, then those without it
     filtered.sort((a, b) => {
-      // If 'a' has workId and 'b' doesn't, 'a' comes first
-      if (a.workId && !b.workId) return -1;
-      // If 'b' has workId and 'a' doesn't, 'b' comes first
-      if (!a.workId && b.workId) return 1;
-      // If both have or don't have workId, maintain original order (or apply additional sorting)
-      return 0;
+      if (a.workId && !b.workId) return -1; // If a has workId and b doesn't, a comes first
+      if (!a.workId && b.workId) return 1;  // If b has workId and a doesn't, b comes first
+      if (a.workId && b.workId) {
+        // If both have workId, sort by the workId value (numeric sorting)
+        return a.workId - b.workId;
+      }
+      return 0; // If neither has workId, keep the original order
     });
   
     return filtered;
   }, [projects, activeBrand, searchTerm]);
+  
   
 
   const handleVideoClick = (project) => {
