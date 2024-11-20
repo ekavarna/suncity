@@ -130,7 +130,7 @@ export default function Work({ projects }) {
       videoElement.pause();
     }, 100); // Debounce to avoid play/pause conflict
   };
-  console.log("filter", filteredVideos);
+
 
   return (
     <div className="w-full flex flex-col justify-end bg-black text-white min-h-screen relative">
