@@ -13,6 +13,7 @@ export default function Nav() {
   const [isDirectorDrawerOpen, setDirectorDrawerOpen] = useState(false);
   const [isProducerDrawerOpen, setProducerDrawerOpen] = useState(false);
 
+
   return (
     <>
       <div className="navbar md:w-[96%] mx-auto md:mt-8 justify-between  z-50 bg-theme-pink md:py-4  md:rounded-3xl lg:px-8 text-theme-yellow top-0 ">

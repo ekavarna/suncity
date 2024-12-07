@@ -68,7 +68,7 @@ export default function Director({ isOpen, onClose }) {
             </h1>
             <div className="font-light text-left md:text-justify text-sm space-y-4 ">
               <p>
-                Rahul Bharti is a seasoned director whose humour is so
+                Rahul is a seasoned director whose humour is so
                 intelligent and subtle it’s practically wearing reading glasses.
                 He has a filmmaking style that’s like a well-tailored suit
                 unassuming yet unforgettable. His approach is modest, but don’t
