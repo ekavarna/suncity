@@ -3,9 +3,13 @@ import Player from "../components/player";
 import Footer from "../components/footer";
 import Who from "../components/Who";
 import Nav from "../components/nav";
+import { useNavigate } from "react-router-dom";
+
 import FullscreenModal from "../components/fullscreen";
 import Loader from "../components/loadingScreen";
 import ScrollToTop from "react-scroll-to-top";
+import { TfiArrowUp } from "react-icons/tfi";
+
 import { FaChevronUp, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 function HomePage({ projects }) {
@@ -15,6 +19,7 @@ function HomePage({ projects }) {
   const [isVideoReady, setIsVideoReady] = useState(false); // Track if the video is ready
   const reelVideoRef = useRef(null);
   const reelMobileVideoRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleVideoClick = (project) => {
     if (project.id === 1) {
@@ -131,19 +136,40 @@ function HomePage({ projects }) {
 
           {/* Other projects */}
           {filteredProjects &&
-            filteredProjects.slice(1, 6).map((project, index) => (
-              <div
-                key={index}
-                onClick={(e) => handleClick(project)}
-                className="w-full cursor-pointer bg-black h-full"
-              >
-                <Player
-                  title={project.title}
-                  brand={project.brand}
-                  url={project.teaser}
-                />
-              </div>
-            ))}
+            filteredProjects.slice(1, 6).map((project, index, arr) => {
+              const isLast = index === arr.length - 1;
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleClick(project)}
+                  className="relative w-full cursor-pointer bg-black h-full"
+                >
+                  <Player
+                    title={project.title}
+                    brand={project.brand}
+                    url={project.teaser}
+                  />
+
+                  {isLast && (
+                    <div className="absolute bottom-1/2 md:bottom-4  left-1/2 transform -translate-x-1/2 z-10">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate("/work");
+                        }}
+                        className="group uppercase animate-bounce hover:scale-110 flex transition-all duration-500 items-center gap-2 text-xs md:text-xl tracking-widest bg-transparent font-medium text-white"
+                      >
+                        Know More
+                        <TfiArrowUp
+                          style={{ strokeWidth: "1" }}
+                          className="rotate-45 group-hover:translate-x-2 transition-all duration-500 group-hover:-translate-y-2"
+                        />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
           <ScrollToTop
             smooth
