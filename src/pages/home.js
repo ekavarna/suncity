@@ -151,7 +151,7 @@ function HomePage({ projects }) {
                   />
 
                   {isLast && (
-                    <div className="absolute bottom-1/2 md:bottom-4  left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="absolute hidden md:block md:bottom-4  left-1/2 transform -translate-x-1/2 z-10">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -176,7 +176,19 @@ function HomePage({ projects }) {
             component={<FaChevronUp className="text-2xl text-black" />}
             className="rounded-full flex items-center justify-center btn-circle shadow-xl hover:scale-105 duration-300"
           />
-
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/work");
+            }}
+            className="group md:hidden  uppercase animate-bounce  hover:scale-110 flex transition-all duration-500 items-center gap-2   tracking-widest bg-transparent font-medium text-white"
+          >
+            Know More
+            <TfiArrowUp
+              style={{ strokeWidth: "1" }}
+              className="rotate-45 group-hover:translate-x-2 transition-all duration-500 group-hover:-translate-y-2"
+            />
+          </button>
           <Who />
         </div>
 
