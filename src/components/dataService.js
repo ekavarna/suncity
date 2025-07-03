@@ -38,12 +38,13 @@ export const fetchProjectsData = async () => {
               workId: project.WorkOrder ? project.WorkOrder : "",
               brand: project.brand_Name ? project.brand_Name : "",
               title: project.Title ? project.Title : "",
+              created: project.createdAt,
               teaser: project.TeaserVideo_url ? project.TeaserVideo_url : "",
               description: project.Summary ? project.Summary : "",
               link: project.VideoURL ? project.VideoURL : "",
               logo: brandResults.data.Logo?.url
                 ? brandResults.data.Logo.url
-                : ""
+                : "",
               // logo: brandResults.data.attributes.Logo
               //   ? `https://cdn.suncitystudios.in/${brandResults.data.attributes.Logo.data.attributes.hash}${brandResults.data.attributes.Logo.data.attributes.ext}`
               //   : "",
