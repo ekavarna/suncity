@@ -229,7 +229,7 @@ export default function Work({ projects }) {
                     className="absolute bg-black border border-white text-white right-0 top-8 w-[12rem] glass rounded-lg shadow-lg z-20"
                   >
                     <button
-                      className={`block w-full text-xs font-light tracking-widest text-left px-4 py-2 ${
+                      className={`block w-full uppercase text-xs font-light tracking-widest text-left px-4 py-2 ${
                         sortOrder === "newest"
                           ? "text-theme-yellow"
                           : "text-white"
@@ -242,7 +242,7 @@ export default function Work({ projects }) {
                       Newest
                     </button>
                     <button
-                      className={`block w-full text-xs font-light tracking-widest text-left px-4 py-2 ${
+                      className={`block w-full text-xs uppercase font-light tracking-widest text-left px-4 py-2 ${
                         sortOrder === "oldest"
                           ? "text-theme-yellow"
                           : "text-white"
@@ -347,7 +347,7 @@ export default function Work({ projects }) {
                 className="absolute overflow-y-scroll  bg-black border border-white text-white left-0 top-12 w-[12rem] glass rounded-lg shadow-lg z-20">
                   
                     <button
-                      className={`block w-full text-xs font-light tracking-widest text-left px-4 py-2 ${
+                      className={`block w-full uppercase text-xs font-light tracking-widest text-left px-4 py-2 ${
                         sortOrder === "newest"
                           ? "text-theme-yellow"
                           : "text-white"
@@ -360,7 +360,7 @@ export default function Work({ projects }) {
                       Newest
                     </button>
                     <button
-                      className={`block w-full text-xs font-light tracking-widest text-left px-4 py-2 ${
+                      className={`block w-full uppercase text-xs font-light tracking-widest text-left px-4 py-2 ${
                         sortOrder === "oldest"
                           ? "text-theme-yellow"
                           : "text-white"
