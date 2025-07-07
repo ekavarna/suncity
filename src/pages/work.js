@@ -239,7 +239,7 @@ export default function Work({ projects }) {
                         setSortDropdownOpen(false);
                       }}
                     >
-                      Newest - Oldest
+                      Newest
                     </button>
                     <button
                       className={`block w-full text-xs font-light tracking-widest text-left px-4 py-2 ${
@@ -252,7 +252,7 @@ export default function Work({ projects }) {
                         setSortDropdownOpen(false);
                       }}
                     >
-                      Oldest - Newest
+                      Oldest
                     </button>
                   </motion.div>
                 )}
@@ -357,7 +357,7 @@ export default function Work({ projects }) {
                         setSortDropdownOpen(false);
                       }}
                     >
-                      Newest - Oldest
+                      Newest
                     </button>
                     <button
                       className={`block w-full text-xs font-light tracking-widest text-left px-4 py-2 ${
@@ -370,7 +370,7 @@ export default function Work({ projects }) {
                         setSortDropdownOpen(false);
                       }}
                     >
-                      Oldest - Newest
+                      Oldest
                     </button>
                   </motion.div>
                 )}
