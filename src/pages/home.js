@@ -183,7 +183,7 @@ function HomePage({ projects }) {
             }}
             className="group md:hidden  uppercase animate-bounce  hover:scale-110 flex transition-all duration-500 items-center gap-2   tracking-widest bg-transparent font-medium text-white"
           >
-            Know More
+            View More
             <TfiArrowUp
               style={{ strokeWidth: "1" }}
               className="rotate-45 group-hover:translate-x-2 transition-all duration-500 group-hover:-translate-y-2"
