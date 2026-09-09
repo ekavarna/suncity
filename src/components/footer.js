@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex justify-between font-light px-4 pb-8 text-sm mx-4 md:mx-8 items-center">
-        <h1 className="">2024. Copyright. All rights reserved.</h1>
+        <h1 className="">2026. Copyright. All rights reserved.</h1>
         <h1 className="">Sun City Studios</h1>
       </div>
     </div>
